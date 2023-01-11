@@ -1,0 +1,10 @@
+dist: trusty
+notifications:
+  email:
+  - fjord@sdfe.dk
+  - anders@andershessellund.dk
+language: node_js
+node_js:
+- 8.0.0
+addons:
+  chrome: stable

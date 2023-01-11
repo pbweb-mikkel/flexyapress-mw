@@ -1,0 +1,148 @@
+	.burger-menu {
+	    position: relative;
+	    cursor: pointer;
+		display: block;
+		width:40px;
+		height: 40px;
+	}
+
+	.burger {
+	    position: absolute;
+	    background: $color-burger;
+	    width: 40px;
+	    height: 3px;
+	    top: 50%;
+	    -webkit-transform:translate(-50%,-50%);
+	    -moz-transform:translate(-50%,-50%);
+	    -o-transform:translate(-50%,-50%);
+	    -ms-transform:translate(-50%,-50%);
+	    transform:translate(-50%,-50%);
+	    left: 50%;
+	    opacity: 1;
+	}
+	
+	.burger::before {
+	    position: absolute;
+	    background: $color-burger;
+		width: 40px;
+		height: 3px;
+	    top: 8px;
+	    content: "";
+	    display: block;
+	}
+
+	.menu-close::before {
+	    position: absolute;
+	    background: $color-burger;
+		width: 40px;
+		height: 3px;
+	    top: 8px;
+	    content: "";
+	    display: block;
+		-webkit-transform: rotate(45deg);
+		-moz-transform: rotate(45deg);
+		-o-transform: rotate(45deg);
+		-ms-transform: rotate(45deg);
+		transform: rotate(45deg);
+		-webkit-transform-origin: 50% 50%;
+		-moz-transform-origin: 50% 50%;
+		-o-transform-origin: 50% 50%;
+		-ms-transform-origin: 50% 50%;
+		transform-origin: 50% 50%;
+		//background-color: $color-burger !important;
+		top: 0px;
+		bottom:0px;
+	}
+	
+	.burger::after {
+	    position: absolute;
+	    background: $color-burger;
+		width: 40px;
+		height: 3px;
+	    bottom: 8px;
+	    content: "";
+	    display: block;
+
+	}
+
+	.menu-close::after {
+		position: absolute;
+		background: $color-burger;
+		width: 40px;
+		height: 3px;
+		bottom: 8px;
+		content: "";
+		display: block;
+		-webkit-transform: rotate(-45deg);
+		-moz-transform: rotate(-45deg);
+		-o-transform: rotate(-45deg);
+		-ms-transform: rotate(-45deg);
+		transform: rotate(-45deg);
+		-webkit-transform-origin: 50% 50%;
+		-moz-transform-origin: 50% 50%;
+		-o-transform-origin: 50% 50%;
+		-ms-transform-origin: 50% 50%;
+		transform-origin: 50% 50%;
+		//background-color: $color-burger !important;
+		bottom: 0px !important;
+		top:0;
+	}
+
+	.burger::after,
+	.burger::before,
+	.burger {
+	    -webkit-transition: all .3s ease-in-out;
+	    -o-transition: all .3s ease-in-out;
+	    -ms-transition: all .3s ease-in-out;
+	    -moz-transition: all .3s ease-in-out;
+	    transition: all .3s ease-in-out;
+	}
+	
+	.burger-menu.active .burger::after {
+	    -webkit-transform: rotate(-45deg);
+	    -moz-transform: rotate(-45deg);
+	    -o-transform: rotate(-45deg);
+	    -ms-transform: rotate(-45deg);
+	    transform: rotate(-45deg);
+	    -webkit-transform-origin: 50% 50%;
+	    -moz-transform-origin: 50% 50%;
+	    -o-transform-origin: 50% 50%;
+	    -ms-transform-origin: 50% 50%;
+	    transform-origin: 50% 50%;
+	    background-color: $color-burger !important;
+	    bottom: 0px !important;
+	    top:0;
+
+	}
+	
+	.burger-menu.active .burger::before {
+	    -webkit-transform: rotate(45deg);
+	    -moz-transform: rotate(45deg);
+	    -o-transform: rotate(45deg);
+	    -ms-transform: rotate(45deg);
+	    transform: rotate(45deg);
+	    -webkit-transform-origin: 50% 50%;
+	    -moz-transform-origin: 50% 50%;
+	    -o-transform-origin: 50% 50%;
+	    -ms-transform-origin: 50% 50%;
+	    transform-origin: 50% 50%;
+		background-color: $color-burger !important;
+	    top: 0px;
+	    bottom:0px;
+	}
+	
+	.burger-menu.active .burger {
+	    background: transparent !important;
+	}
+	
+	.burger-menu.active .burger-menu-title {
+	    opacity: 0;
+	}
+	
+	.burger-menu{
+		display:block;
+	}
+
+	.burger.black, .burger.black::before, .burger.black::after{
+		background:#000 !important;
+	}
