@@ -9,14 +9,14 @@
  * that starts the plugin.
  *
  * @link              https://pbweb.dk
- * @since             1.0.0
+ * @since             1.0.5
  * @package           Flexyapress
  *
  * @wordpress-plugin
  * Plugin Name:       PB Web - Mindworking
  * Plugin URI:        https://pbweb.dk/flexyapress
  * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
- * Version:           1.0.0
+ * Version:           1.0.5
  * Author:            PB Web
  * Author URI:        https://pbweb.dk
  * License:           GPL-2.0+
@@ -35,7 +35,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'FLEXYAPRESS_VERSION', '1.0.4' );
+define( 'FLEXYAPRESS_VERSION', '1.0.5' );
 
 if(!defined('FLEXYA_DEV')){
     define( 'FLEXYA_DEV', true);
