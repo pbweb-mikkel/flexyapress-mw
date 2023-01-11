@@ -88,7 +88,7 @@ function pb_automatic_updates($data) {
     if($file) {
         $update = filter_var($file->tag_name, FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
         // Only return a response if the new version number is higher than the current version
-        new Flexyapress_Log('updater', $update, $file->zipball_url);
+
 
         if($update > $current) {
             $item = (object) array(
@@ -100,7 +100,7 @@ function pb_automatic_updates($data) {
                 'plugin'        => $id,
             );
             $data->response[$id] = $item;
-
+            new Flexyapress_Log('updater', $update, $item);
         }else{
 
             $item = (object) array(
