@@ -94,13 +94,15 @@ function pb_automatic_updates($data) {
             $item = (object) array(
                 'new_version' => $update,
                 'url'         => 'https://github.com/'.$user.'/'.$repo,
-                'package'     => $file->zipball_url,
+                'package'     => $file->assets[0]->browser_download_url,
                 'id'            => $id,
                 'slug'          => $slug,
                 'plugin'        => $id,
             );
             $data->response[$id] = $item;
-            new Flexyapress_Log('updater', $update, $item);
+
+            new Flexyapress_Log('updater', $update, serialize($item));
+
         }else{
 
             $item = (object) array(
