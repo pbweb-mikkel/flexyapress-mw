@@ -337,17 +337,47 @@ class Flexyapress_Import{
 
         }
 
+        $announceText1 = null;
+        $announceText2 = null;
+        $announceText3 = null;
+        $announceText4 = null;
+        $announceText5 = null;
+
+        if(!empty($c->announceTexts)){
+            foreach ($c->announceTexts as $t){
+                switch ($t->textNumber){
+                    case 1:
+                        $announceText1 = $t->text;
+                        break;
+                    case 2:
+                        $announceText2 = $t->text;
+                        break;
+                    case 3:
+                        $announceText3 = $t->text;
+                        break;
+                    case 4:
+                        $announceText4 = $t->text;
+                        break;
+                    case 5:
+                        $announceText5 = $t->text;
+                        break;
+                }
+            }
+        }
+
         $case->setCaseKey($c->id);
         $case->setCaseNumber($c->caseNumber);
         $case->setCaseType($c->__typename);
         $case->setStatus($sale_status);
         $case->setReserved($c->status == 'UnderSale' ?: false);
+        $case->setNoAdvertisement($c->noAdvertisement);
         $case->setPublishedDate($c->createdDate);
         //$case->setSoldDate(($c->status == 'SOLD' ?  : null));
         if($broker){
             $case->setRealtor($broker->id);
             $case->setRealtorName($broker->firstName.' '.$broker->lastName);
             $case->setRealtorPhone($broker->phoneNumber);
+            $case->setRealtorMobile($broker->mobileNumber);
             $case->setRealtorEmail($broker->email);
             $case->setRealtorImage($broker->imageUrlAsset);
             $case->setRealtorTitle($broker->title);
@@ -417,11 +447,11 @@ class Flexyapress_Import{
         //$case->setSaleType();
         $case->setPropertyType($c->propertyType);
         $case->setPropertyClass($this->formatPropertyClass($c->propertyType));
-        $case->setDescription1((!empty($c->announceTexts[0]) ? $c->announceTexts[0]->text : null));
-        $case->setDescription2((!empty($c->announceTexts[1]) ? $c->announceTexts[1]->text : null));
-        $case->setDescription3((!empty($c->announceTexts[2]) ? $c->announceTexts[2]->text : null));
-        $case->setDescription4((!empty($c->announceTexts[3]) ? $c->announceTexts[3]->text : null));
-        $case->setDescription5((!empty($c->announceTexts[4]) ? $c->announceTexts[4]->text : null));
+        $case->setDescription1($announceText1);
+        $case->setDescription2($announceText2);
+        $case->setDescription3($announceText3);
+        $case->setDescription4($announceText4);
+        $case->setDescription5($announceText5);
         $case->setShopNo($c->shopNo);
         $case->setPresentationUrl($c->presentationUrl);
         //$case->setPhotoTexts();
@@ -470,7 +500,7 @@ class Flexyapress_Import{
             if(!empty($sorted_appointments)){
                 $case->setOpenhouseActive(true);
                 $day = Flexyapress_Helpers::get_pretty_day_name(date('w', strtotime($sorted_appointments[0]['dateStart'])));
-                $case->setOpenHouseDate($day.' d. '.date('d/m', strtotime($sorted_appointments[0]['dateStart'])).' kl. '.date('H:i', strtotime($sorted_appointments[0]['dateStart'])));
+                $case->setOpenHouseDate($day.' d. '.date('d/m', strtotime($sorted_appointments[0]['dateStart'])).' kl. '.date('H:i', strtotime($sorted_appointments[0]['dateStart'])).(!empty($sorted_appointments[0]['dateEndUnix']) ? ' - '.date('H:i', $sorted_appointments[0]['dateEndUnix']) : ''));
                 $case->setOpenhouseSignupRequired($sorted_appointments[0]['signupRequired']);
 
             }else{

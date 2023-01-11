@@ -138,11 +138,11 @@
 
     </form>
 
-    <a href="/?flexya_update=1&key=sd5d2rf16&force&debug" target="_blank">Opdatér sager</a>
+    <a href="<?= get_home_url() ?>?flexya_update=1&key=sd5d2rf16&force&debug" target="_blank">Opdatér sager</a>
     <br><br>
-    <a href="/?flexya_update=1&force-images=1&key=sd5d2rf16&force&debug" target="_blank">Opdatér sager og billeder</a>
+    <a href="<?= get_home_url() ?>/?flexya_update=1&force-images=1&key=sd5d2rf16&force&debug" target="_blank">Opdatér sager og billeder</a>
     <br><br>
-    <a href="/?flexya_update=1&clear-images=1&key=sd5d2rf16&force&debug" target="_blank">Opdatér sager og ryd billeder</a>
+    <a href="<?= get_home_url() ?>/?flexya_update=1&clear-images=1&key=sd5d2rf16&force&debug" target="_blank">Opdatér sager og ryd billeder</a>
 
 </div>
 <?php wp_enqueue_style( 'wp-color-picker' );  ?>

@@ -14,6 +14,7 @@ class Flexyapress_Case{
 	private $description5;
 	private $status;
 	private $reserved;
+	private $noAdvertisement;
 	private $propertyType;
 	private $propertyClass;
 	private $publishedDate;
@@ -22,6 +23,7 @@ class Flexyapress_Case{
 	private $realtorEmail;
 	private $realtorName;
 	private $realtorPhone;
+	private $realtorMobile;
 	private $realtorImage;
 	private $realtorTitle;
 	private $address;
@@ -190,6 +192,7 @@ class Flexyapress_Case{
 										'caseType'              => $this->getCaseType(),
 										'status'	            => $this->getStatus(),
 										'reserved'		        => $this->getReserved(),
+										'noAdvertisement'		=> $this->getNoAdvertisement(),
 										'publishedDate'	        => $this->getPublishedDate(),
 										'publishedDateEpoch'	=> strtotime($this->getPublishedDate()),
 										'soldDate'	            => $this->getSoldDate(),
@@ -197,6 +200,7 @@ class Flexyapress_Case{
 										'realtorName'           => $this->getRealtorName(),
 										'realtorEmail'           => $this->getRealtorEmail(),
 										'realtorPhone'           => $this->getRealtorPhone(),
+										'realtorMobile'           => $this->getRealtorMobile(),
 										'realtorImage'           => $this->getRealtorImage(),
 										'realtorTitle'           => $this->getRealtorTitle(),
 										'roadname'		        => $this->getRoadname(),
@@ -568,6 +572,22 @@ class Flexyapress_Case{
 		$this->reserved = $reserved;
 	}
 
+    /**
+     * @return mixed
+     */
+    public function getNoAdvertisement()
+    {
+        return $this->noAdvertisement;
+    }
+
+    /**
+     * @param mixed $noAdvertisement
+     */
+    public function setNoAdvertisement($noAdvertisement)
+    {
+        $this->noAdvertisement = $noAdvertisement;
+    }
+
 	public function isActive(){
 		return ($this->getStatus() == 'ACTIVE');
 	}
@@ -791,6 +811,23 @@ class Flexyapress_Case{
 	public function setRealtorPhone( $realtorPhone ) {
 		$this->realtorPhone = $realtorPhone;
 	}
+
+    /**
+     * @return mixed
+     */
+    public function getRealtorMobile()
+    {
+        return $this->realtorMobile;
+    }
+
+    /**
+     * @param mixed $realtorMobile
+     */
+    public function setRealtorMobile($realtorMobile)
+    {
+        $this->realtorMobile = $realtorMobile;
+    }
+
 
     /**
      * @return mixed

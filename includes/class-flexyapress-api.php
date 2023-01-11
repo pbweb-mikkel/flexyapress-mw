@@ -65,6 +65,7 @@ class Flexyapress_API{
                             firstName
                             lastName
                             phoneNumber
+                            mobileNumber
                             email
                             imageUrlAsset
                             visibleOnWebsite
@@ -253,6 +254,7 @@ class Flexyapress_API{
                             firstName
                             lastName
                             phoneNumber
+                            mobileNumber
                             email
                             imageUrlAsset
                             visibleOnWebsite
@@ -450,6 +452,7 @@ class Flexyapress_API{
                             firstName
                             lastName
                             phoneNumber
+                            mobileNumber
                             email
                             imageUrlAsset
                             visibleOnWebsite
@@ -635,6 +638,7 @@ class Flexyapress_API{
                             firstName
                             lastName
                             phoneNumber
+                            mobileNumber
                             email
                             imageUrlAsset
                             visibleOnWebsite
