@@ -350,23 +350,22 @@
 
         }
 
+        var arrangedData = {};
+        for(var key in data){
+            arrangedData[data[key].name] = data[key].value;
+        }
 
-        if(grecaptcha && ajax_object.google_captcha_site_key){
+        if(arrangedData.date == ""){
+            $('.date-error', this).removeClass('d-none');
+        }
+
+        arrangedData.action = 'submit_flexya_form';
+
+        if(typeof grecaptcha !== 'undefined'  && ajax_object.google_captcha_site_key){
             grecaptcha.execute(ajax_object.google_captcha_site_key, {action: 'submit_flexya_form'}).then(function(resp_token){
                 token = resp_token;
 
-                var arrangedData = {};
-                for(var key in data){
-                    arrangedData[data[key].name] = data[key].value;
-                }
-
-                if(arrangedData.date == ""){
-                    $('.date-error', this).removeClass('d-none');
-                }
-
                 arrangedData.token = token;
-                arrangedData.action = 'submit_flexya_form';
-
 
                 $.ajax({
                     url: ajax_object.ajaxurl,
@@ -398,9 +397,43 @@
                     complete: function(){
                         $('.loading-spinner', form).hide();
                     }
-                })
+                });
 
             });
+        }else{
+
+            $.ajax({
+                url: ajax_object.ajaxurl,
+                method: 'post',
+                data:arrangedData,
+                beforeSend: function(){
+                    $('.loading-spinner', form).show();
+                    $('input[type="submit"]',form).hide();
+                },
+                success: function(resp){
+                    //console.log(resp);
+                    var data = resp.data;
+                    console.log(data);
+                    if(data.type == 'error'){
+                        $('.status-message', form).text(data.message).fadeIn();
+                        $('input[type="submit"]',form).show();
+                    }else if(data.type == 'success'){
+                        $(form).animate({
+                            opacity: 0
+                        }, 500, 'swing', function(){
+                            form.hide();
+                            form.siblings('.success-message').fadeIn();
+                        })
+                    }
+
+                    //console.log(data);
+
+                },
+                complete: function(){
+                    $('.loading-spinner', form).hide();
+                }
+            });
+
         }
 
 

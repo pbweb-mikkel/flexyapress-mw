@@ -1658,9 +1658,8 @@ class Flexyapress_API{
         return wp_remote_post( $this->base_url.'leads/graphql/', $args);
     }
 
-    private function order_open_house($consent_id, $openhouse_id, $openhouse_start_datetime, $firstName, $lastName = '', $phone, $email, $message = ''){
+    private function order_open_house($consent_id, $openhouse_id, $openhouse_start_datetime = '', $firstName, $lastName = '', $phone, $email, $message = ''){
         $args = $this->get_header_args();
-
         $args['timeout'] = 300;
         $args['body'] = json_encode(
             ['query' => 'mutation{
@@ -1901,13 +1900,13 @@ class Flexyapress_API{
         }
 
 		//Check for robots
-
-		$data = array(
-			'secret' => $this->captcha_secret_key,
-			'response' => $_POST['token']
-		);
-
         if($this->captcha_secret_key) {
+
+            $data = array(
+                'secret' => $this->captcha_secret_key,
+                'response' => $_POST['token']
+            );
+
             $verify = curl_init();
             curl_setopt($verify, CURLOPT_URL, "https://www.google.com/recaptcha/api/siteverify");
             curl_setopt($verify, CURLOPT_POST, true);
@@ -1978,11 +1977,7 @@ class Flexyapress_API{
     }
 
 	public function enqueue_case_scripts(){
-		if(FLEXYA_DEV == true){
-			return false;
-		}
-		echo '<script>var flexyaCasekey = "'.get_post_meta(get_the_ID(), 'caseKey', true).'";</script>';
-		echo '<script src="'.$this->base_url.'getStatsScript.js" defer></script>';
+		return false;
 	}
 
     public function generate_facebook_ad_catalog(){
