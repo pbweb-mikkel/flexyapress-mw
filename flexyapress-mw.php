@@ -35,7 +35,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'FLEXYAPRESS_VERSION', '1.0.3' );
+define( 'FLEXYAPRESS_VERSION', '1.0.4' );
 
 if(!defined('FLEXYA_DEV')){
     define( 'FLEXYA_DEV', true);
@@ -82,6 +82,8 @@ function pb_automatic_updates($data) {
     $file = json_decode(file_get_contents('https://api.github.com/repos/'.$user.'/'.$repo.'/releases/latest', false,
         stream_context_create(['http' => ['header' => "User-Agent: ".$user."\r\n"]])
     ));
+
+    new Flexyapress_Log('checking_updater', serialize($file));
 
     if($file) {
         $update = filter_var($file->tag_name, FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
