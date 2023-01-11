@@ -9,7 +9,7 @@
  * that starts the plugin.
  *
  * @link              https://pbweb.dk
- * @since             1.0.5
+ * @since             1.0.6
  * @package           Flexyapress
  *
  * @wordpress-plugin
@@ -35,7 +35,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'FLEXYAPRESS_VERSION', '1.0.5' );
+define( 'FLEXYAPRESS_VERSION', '1.0.6' );
 
 if(!defined('FLEXYA_DEV')){
     define( 'FLEXYA_DEV', true);
