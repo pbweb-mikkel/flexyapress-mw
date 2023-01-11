@@ -1,5 +1,5 @@
 <?php
-
+define( 'FLEXYAPRESS_VERSION', '1.0.7' );
 /**
  * The plugin bootstrap file
  *
@@ -16,7 +16,7 @@
  * Plugin Name:       PB Web - Mindworking
  * Plugin URI:        https://pbweb.dk/flexyapress
  * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
- * Version:           1.0.5
+ * Version:           1.0.7
  * Author:            PB Web
  * Author URI:        https://pbweb.dk
  * License:           GPL-2.0+
@@ -35,7 +35,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'FLEXYAPRESS_VERSION', '1.0.6' );
+
 
 if(!defined('FLEXYA_DEV')){
     define( 'FLEXYA_DEV', true);
@@ -83,8 +83,6 @@ function pb_automatic_updates($data) {
         stream_context_create(['http' => ['header' => "User-Agent: ".$user."\r\n"]])
     ));
 
-    new Flexyapress_Log('checking_updater', serialize($file));
-
     if($file) {
         $update = filter_var($file->tag_name, FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
         // Only return a response if the new version number is higher than the current version
@@ -100,8 +98,6 @@ function pb_automatic_updates($data) {
                 'plugin'        => $id,
             );
             $data->response[$id] = $item;
-
-            new Flexyapress_Log('updater', $update, serialize($item));
 
         }else{
 
