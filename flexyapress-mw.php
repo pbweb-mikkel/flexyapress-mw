@@ -91,7 +91,7 @@ function pb_automatic_updates($data) {
         new Flexyapress_Log('updater', $update, $file->zipball_url);
 
         if($update > $current) {
-            $item = array(
+            $item = (object) array(
                 'new_version' => $update,
                 'url'         => 'https://github.com/'.$user.'/'.$repo,
                 'package'     => $file->zipball_url,
@@ -103,7 +103,7 @@ function pb_automatic_updates($data) {
 
         }else{
 
-            $item = array(
+            $item = (object) array(
                 'new_version' => FLEXYAPRESS_VERSION,
                 'url'         => '',
                 'package'     => '',
