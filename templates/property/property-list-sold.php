@@ -8,7 +8,7 @@
         <div class="inner">
             <div class="properties">
             <?php
-                include WP_PLUGIN_DIR .'/flexyapress/includes/templates/property/property-loop.php';
+                include WP_PLUGIN_DIR .'/flexyapress-mw/templates/property/property-loop.php';
             ?>
             </div>
         </div>

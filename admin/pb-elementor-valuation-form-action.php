@@ -1,6 +1,6 @@
 <?php
 
-require_once WP_PLUGIN_DIR .'/flexyapress/includes/class-flexyapress-api.php';
+require_once WP_PLUGIN_DIR .'/flexyapress-mw/includes/class-flexyapress-api.php';
 
 /**
  * Class Sendy_Action_After_Submit

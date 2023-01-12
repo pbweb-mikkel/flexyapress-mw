@@ -113,7 +113,7 @@ class Elementor_Property_List_Sold extends \Elementor\Widget_Base {
 
 		$settings = $this->get_settings_for_display();
 
-		include WP_PLUGIN_DIR .'/flexyapress/includes/templates/property/property-list-sold.php';
+		include WP_PLUGIN_DIR .'/flexyapress-mw/includes/templates/property/property-list-sold.php';
 
 
 	}

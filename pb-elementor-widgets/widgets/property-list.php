@@ -166,7 +166,7 @@ class Elementor_Property_List extends \Elementor\Widget_Base {
 
 		$settings = $this->get_settings_for_display();
 
-		include WP_PLUGIN_DIR .'/flexyapress/includes/templates/property/property-list.php';
+		include WP_PLUGIN_DIR .'/flexyapress-mw/includes/templates/property/property-list.php';
 
 
 	}

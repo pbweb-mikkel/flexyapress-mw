@@ -126,7 +126,7 @@ class Elementor_Search_Agent extends \Elementor\Widget_Base {
 
 		$settings = $this->get_settings_for_display();
 
-		include WP_PLUGIN_DIR .'/flexyapress/includes/templates/set-search-agent.php';
+		include WP_PLUGIN_DIR .'/flexyapress-mw/includes/templates/set-search-agent.php';
 
 
 	}

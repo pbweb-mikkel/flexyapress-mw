@@ -108,7 +108,7 @@ class Elementor_Properties_Recent extends \Elementor\Widget_Base {
 
 		$settings = $this->get_settings_for_display();
 
-		include WP_PLUGIN_DIR .'/flexyapress/includes/templates/property/properties-recent.php';
+		include WP_PLUGIN_DIR .'/flexyapress-mw/includes/templates/property/properties-recent.php';
 
 
 	}

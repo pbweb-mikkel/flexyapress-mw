@@ -1,5 +1,5 @@
 <?php
-define( 'FLEXYAPRESS_VERSION', '1.0.9' );
+define( 'FLEXYAPRESS_VERSION', '1.0.10' );
 /**
  * The plugin bootstrap file
  *
@@ -16,7 +16,7 @@ define( 'FLEXYAPRESS_VERSION', '1.0.9' );
  * Plugin Name:       PB Web - Mindworking
  * Plugin URI:        https://pbweb.dk/flexyapress
  * Description:       Dette plugin sørger for dataintegration med Mindworking.
- * Version:           1.0.9
+ * Version:           1.0.10
  * Author:            PB Web
  * Author URI:        https://pbweb.dk
  * License:           GPL-2.0+
@@ -79,9 +79,15 @@ function pb_automatic_updates($data) {
     $repo = 'flexyapress-mw'; // Repository name as it appears in the URL
     // Get the latest release tag from the repository. The User-Agent header must be sent, as per
     // GitHub's API documentation: https://developer.github.com/v3/#user-agent-required
-    $file = json_decode(file_get_contents('https://api.github.com/repos/'.$user.'/'.$repo.'/releases/latest', false,
+    /*$file = json_decode(file_get_contents('https://api.github.com/repos/'.$user.'/'.$repo.'/releases/latest', false,
         stream_context_create(['http' => ['header' => "User-Agent: ".$user."\r\n"]])
-    ));
+    ));*/
+    $response = wp_remote_get('https://api.github.com/repos/'.$user.'/'.$repo.'/releases/latest',['headers' => "User-Agent: ".$user]);
+
+    $file = false;
+    if(!is_wp_error($response)){
+        $file = json_decode($response['body']);
+    }
 
     if($file) {
         $update = filter_var($file->tag_name, FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);

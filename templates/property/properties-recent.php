@@ -26,7 +26,7 @@ $query = new WP_Query($qargs);
 	}
 	echo '<div class="recent-properties">';
 		while ( $query->have_posts() ) : $query->the_post();
-			include WP_PLUGIN_DIR .'/flexyapress/includes/templates/property/property-loop-item.php';
+			include WP_PLUGIN_DIR .'/flexyapress-mw/templates/property/property-loop-item.php';
 		endwhile;
 	echo '</div>';
 	?>
