@@ -1476,6 +1476,9 @@ class Flexyapress_API{
             case 'CASE_CONTACT_ORDER':
                 $response = $this->order_case_contact($qs['caseNo'], $qs['shopNo'], $qs['consentIdGlobal'], $qs['name'], $qs['lastName'], $qs['phone'], $qs['email'], $qs['message']);
                 break;
+            case 'CONTACT_ORDER':
+                $response = $this->order_office_contact($qs['shopNo'], $qs['consentIdGlobal'], $qs['name'], $qs['lastName'], $qs['phone'], $qs['email'], $qs['message']);
+                break;
             case 'VALUATION_ORDER':
                 $response = $this->order_sales_valuation($qs['consentIdGlobal'], $qs['shopNo'], $qs['name'], $qs['lastName'], $qs['phone'], $qs['email'], $qs['message'], $qs['livesOnAddress'], $qs['dawa-address-id']);
                 break;
@@ -1527,6 +1530,10 @@ class Flexyapress_API{
             case 'CASE_CONTACT_ORDER':
                 $id = $response_body->data->createContactEmployee->id;
                 $errors = $response_body->data->createContactEmployee->errors;
+                break;
+            case 'CONTACT_ORDER':
+                $id = $response_body->data->createContact->id;
+                $errors = $response_body->data->createContact->errors;
                 break;
             case 'VALUATION_ORDER':
                 $id = $response_body->data->createSalesValuation->id;
@@ -1639,6 +1646,37 @@ class Flexyapress_API{
                               phoneNumber: "'.$phone.'"
                               caseNo: "'.$caseNo.'"
                               shopNo: "'.$shopNo.'"
+                              consentIdGlobal: "'.$consent_id.'"
+                              email: "'.$email.'"
+                              message: "'.$message.'"
+                            }
+                          ){
+                        id
+                        errors {
+                          id
+                          message
+                          path
+                          type
+                        }
+                      }
+                      }
+            ']);
+
+        return wp_remote_post( $this->base_url.'leads/graphql/', $args);
+    }
+
+    private function order_office_contact($shopNo, $consent_id, $firstName, $lastName = '', $phone, $email, $message = ''){
+        $args = $this->get_header_args();
+
+        $args['timeout'] = 300;
+        $args['body'] = json_encode(
+            ['query' => 'mutation{
+                          createContact(
+                            input: {
+                              firstName: "'.$firstName.'"
+                              lastName: "'.$lastName.'"
+                              phoneNumber: "'.$phone.'"
+                              responsibleShopNo: "'.$shopNo.'"
                               consentIdGlobal: "'.$consent_id.'"
                               email: "'.$email.'"
                               message: "'.$message.'"

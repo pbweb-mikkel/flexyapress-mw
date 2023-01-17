@@ -12,6 +12,7 @@ class Flexyapress_Shortcodes {
         add_shortcode( 'property_list', [ $this, 'property_list' ] );
         add_shortcode( 'property_slider', [ $this, 'property_slider' ] );
         add_shortcode( 'valuation_form', [ $this, 'valuation_form' ] );
+        add_shortcode( 'office_contact_form', [ $this, 'office_contact_form' ] );
         add_shortcode( 'valuation_form_compact', [ $this, 'valuation_form_compact' ] );
         add_shortcode( 'search_agent_form', [ $this, 'search_agent_form' ] );
 	}
@@ -61,6 +62,18 @@ class Flexyapress_Shortcodes {
             include get_stylesheet_directory() .'/mw/form-valuation.php';
         }else {
             include WP_PLUGIN_DIR . '/flexyapress-mw/templates/forms/form-valuation.php';
+        }
+        return ob_get_clean();
+    }
+
+    public function office_contact_form( $atts ) {
+        $atts = shortcode_atts( [
+        ], $atts );
+        ob_start();
+        if(file_exists(get_stylesheet_directory() .'/mw/form-order-office-contact.php')){
+            include get_stylesheet_directory() .'/mw/form-order-office-contact.php';
+        }else {
+            include WP_PLUGIN_DIR . '/flexyapress-mw/templates/forms/form-order-office-contact.php';
         }
         return ob_get_clean();
     }
