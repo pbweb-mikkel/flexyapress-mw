@@ -1563,6 +1563,9 @@ class Flexyapress_Case{
 	 * @return mixed
 	 */
 	public function getPrimaryPhoto() {
+        if(!$this->primaryPhoto){
+            return WP_PLUGIN_URL.'/flexyapress-mw/public/img/billede-mangler.png';
+        }
 		return $this->primaryPhoto;
 	}
 
@@ -1578,6 +1581,9 @@ class Flexyapress_Case{
 	 * @return mixed
 	 */
 	public function getPrimaryPhoto1000() {
+        if(!$this->primaryPhoto1000){
+            return WP_PLUGIN_URL.'/flexyapress-mw/public/img/billede-mangler.png';
+        }
 		return $this->primaryPhoto1000;
 	}
 

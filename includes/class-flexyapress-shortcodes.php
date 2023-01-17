@@ -23,6 +23,7 @@ class Flexyapress_Shortcodes {
         $atts = shortcode_atts( [
             'show_search' => 'true',
             'sale_type' => 'all',
+            'show_only' => 'all',
             'max' => 99999,
             'cta' => 'Se alle boliger'
         ], $atts );

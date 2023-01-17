@@ -517,6 +517,7 @@ class Flexyapress_Import{
 		$saved_id = $case->save();
 
 		if($saved_id){
+
 			$case->setPostID($saved_id);
 			$this->set_taxonomies($case);
 
@@ -594,7 +595,7 @@ class Flexyapress_Import{
                 if($img->mediaType->name != 'Video'){
                     $temp = [
                         'url' => $this->getAPI()->get_external_image_url($img->id, $img->imageHash),
-                        'url_presentation' => $this->getAPI()->get_external_image_url($img->id, $img->imageHash, 1024),
+                        'url_presentation' => str_replace('/Assets/', '/Presentation/',$img->resourceUrl),
                         'url_thumbnail' => $this->getAPI()->get_external_image_url($img->id, $img->imageHash, 300),
                         'description' => $img->description,
                         'priority' => $img->priority
@@ -611,6 +612,11 @@ class Flexyapress_Import{
 
             }
 
+        }
+
+        if($images){
+            update_field('primaryPhoto', $images[0]['url'], $case->getPostID());
+            update_field('primaryPhoto1000', $images[0]['url_presentation'], $case->getPostID());
         }
 
         update_field('imagesExternal', $images, $case->getPostID());

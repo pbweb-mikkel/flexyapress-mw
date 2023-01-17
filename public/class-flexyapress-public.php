@@ -191,6 +191,21 @@ class Flexyapress_Public {
     }
 
 
+    // add a link to the WP Toolbar
+    function pb_toolbar_links($wp_admin_bar) {
+        $args = array(
+            'id' => 'flexyapress-mw',
+            'title' => 'Opdatér sager',
+            'href' => get_home_url().'?flexya_update=1&key=sd5d2rf16&force&debug',
+            'meta' => array(
+                'class' => 'flexyapress-mw',
+                'title' => 'Opdatér sager'
+            )
+        );
+        $wp_admin_bar->add_menu($args);
+    }
+
+
     public function set_default_featured_image($html, $post_id, $thumb_id, $size, $attr){
         if(is_object($post_id)){
             $post_id = $post_id->ID;

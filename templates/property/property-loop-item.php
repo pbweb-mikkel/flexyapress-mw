@@ -10,7 +10,7 @@
 		<?= $case->isActive() ? '<a href="'.get_the_permalink().'">' : ''; ?>
 			<div class="image">
                 <?= $case->printFlag() ?>
-				<?php the_post_thumbnail('large') ?>
+				<?= '<img src="'.$case->getPrimaryPhoto1000().'" alt="'.$case->getSimpleAddress().'" loading="lazy">'; ?>
 			</div>
             <div class="property-title">
                 <h3><span class="address"><?= $case->getAddress() ?></span><br><span class="city"><?= $case->getZipcode().' '.$case->getCity() ?></span></h3>
