@@ -20,9 +20,10 @@ class Flexyapress_Import{
 
 		ob_start();
 
+        $this->update_lead_types();
+
 		$existing_cases = $this->get_existing_cases_ID();
         $error = false;
-
 
         $count_before = count($existing_cases);
         $updated_since = $force ? '1999-01-01' : (get_transient('flexyapress_last_update') ?: '1999-01-01');
@@ -95,48 +96,6 @@ class Flexyapress_Import{
                 $queue->run();
             }*/
 
-            echo 'Saving lead types<br>';
-            $lead_types = $this->getAPI()->get_lead_types();
-
-            if(!empty($lead_types)){
-                $formatted_lead_types = [];
-                foreach ($lead_types as $lt){
-
-                    if(empty($lt->id)){
-                        echo 'no id. Skipping<br>';
-                        continue;
-                    }
-                    echo 'getting consents for '.$lt->name.'<br>';
-                    $consents = $this->getAPI()->get_lead_consents_by_typeid($lt->id);
-
-                    if(!empty($consents)){
-                        foreach ($consents as $c){
-
-                            if(empty($c->isCurrent) || empty($c->leadType)){
-                                continue;
-                            }
-
-                            $formatted_lead_types[$c->leadType->name] = [
-                                'heading' => $c->heading,
-                                'id' => $c->id,
-                                'text' => $c->purposeText
-                            ];
-
-                        }
-                    }else{
-                        echo 'no consents<br>';
-                    }
-
-                }
-
-                if(get_option('flexyapress_consents') === false){
-                    add_option('flexyapress_consents', $formatted_lead_types, null, false);
-                }else{
-                    update_option('flexyapress_consents', $formatted_lead_types);
-                }
-
-            }
-
 			$c = ob_get_clean();
 
             if($force && !empty($existing_cases) && count($existing_cases) < $count_before){
@@ -157,11 +116,53 @@ class Flexyapress_Import{
             set_transient('flexyapress_last_update', date('c', time()));
 
 		}else{
-
 			die('No cases to import!');
 
 		}
 	}
+
+    public function update_lead_types(){
+        echo 'Saving lead types<br>';
+        $lead_types = $this->getAPI()->get_lead_types();
+
+        if(!empty($lead_types)) {
+            $formatted_lead_types = [];
+            foreach ($lead_types as $lt) {
+
+                if (empty($lt->id)) {
+                    echo 'no id. Skipping<br>';
+                    continue;
+                }
+                echo 'getting consents for ' . $lt->name . '<br>';
+                $consents = $this->getAPI()->get_lead_consents_by_typeid($lt->id);
+
+                if ( ! empty($consents)) {
+                    foreach ($consents as $c) {
+
+                        if (empty($c->isCurrent) || empty($c->leadType)) {
+                            continue;
+                        }
+
+                        $formatted_lead_types[$c->leadType->name] = [
+                            'heading' => $c->heading,
+                            'id'      => $c->id,
+                            'text'    => $c->purposeText
+                        ];
+
+                    }
+                } else {
+                    echo 'no consents<br>';
+                }
+
+            }
+
+            if (get_option('flexyapress_consents') === false) {
+                add_option('flexyapress_consents', $formatted_lead_types, null, false);
+            } else {
+                update_option('flexyapress_consents', $formatted_lead_types);
+            }
+        }
+    }
 
     public function delete_cases($arr){
 
