@@ -918,7 +918,7 @@ class Flexyapress_Case{
      */
     public function getSimpleAddressWithoutCity() {
 
-        sprintf( '%s %s%s %s',
+        return sprintf( '%s %s%s %s',
             $this->getRoadname(),
             $this->getRoadnumber(),
             ! empty( $this->getFloor() ) ? ', ' . strtolower( $this->getFloor() ) : '',
