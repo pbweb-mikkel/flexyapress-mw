@@ -13,7 +13,7 @@
 				<?= '<img src="'.$case->getPrimaryPhoto1000().'" alt="'.$case->getSimpleAddress().'" loading="lazy">'; ?>
 			</div>
             <div class="property-title">
-                <h3><span class="address"><?= $case->getAddress() ?></span><br><span class="city"><?= $case->getZipcode().' '.$case->getCity() ?></span></h3>
+                <h3><span class="address"><?= $case->getSimpleAddressWithoutCity() ?></span><br><span class="city"><?= $case->getZipcode().' '.$case->getCity() ?></span></h3>
             </div>
 			<div class="content">
                 <div class="spec-list">

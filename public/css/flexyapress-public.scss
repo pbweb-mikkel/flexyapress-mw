@@ -544,7 +544,7 @@ $font-primary: var( --e-global-typography-primary-font-family ), Sans-serif;
     .slide{
       height: 1080px;
       max-height: 100vh;
-
+      background:#000;
       iframe{
         position: relative;
         width:100%;
@@ -557,7 +557,12 @@ $font-primary: var( --e-global-typography-primary-font-family ), Sans-serif;
         img{
           width:100%;
           height: 100%;
-          object-fit: cover;
+          object-fit: contain;
+
+          @media screen and (max-width:1900px) {
+            object-fit: cover;
+          }
+
         }
 
       &.drawing img{
@@ -589,10 +594,10 @@ $font-primary: var( --e-global-typography-primary-font-family ), Sans-serif;
     .slick-next{
       right:0px;
       /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,0.65+100 */
-      background: -moz-linear-gradient(left,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.40) 100%); /* FF3.6-15 */
-      background: -webkit-linear-gradient(left,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.40) 100%); /* Chrome10-25,Safari5.1-6 */
-      background: linear-gradient(to right,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.40) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=1 ); /* IE6-9 */
+      //background: -moz-linear-gradient(left,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.40) 100%); /* FF3.6-15 */
+      //background: -webkit-linear-gradient(left,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.40) 100%); /* Chrome10-25,Safari5.1-6 */
+      //background: linear-gradient(to right,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.40) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      //filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=1 ); /* IE6-9 */
       &:after{
         content:"";
         width: 50px;
@@ -612,10 +617,10 @@ $font-primary: var( --e-global-typography-primary-font-family ), Sans-serif;
     .slick-prev{
       left:0px;
       /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0.65+0,0+100;Neutral+Density */
-      background: -moz-linear-gradient(left, rgba(0,0,0,0.40) 0%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
-      background: -webkit-linear-gradient(left, rgba(0,0,0,0.40) 0%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
-      background: linear-gradient(to right, rgba(0,0,0,0.40) 0%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=1 ); /* IE6-9 */
+      //background: -moz-linear-gradient(left, rgba(0,0,0,0.40) 0%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+      //background: -webkit-linear-gradient(left, rgba(0,0,0,0.40) 0%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+      //background: linear-gradient(to right, rgba(0,0,0,0.40) 0%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      //filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=1 ); /* IE6-9 */
       &:after{
         content:"";
         width: 50px;

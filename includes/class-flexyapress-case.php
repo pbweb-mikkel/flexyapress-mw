@@ -913,6 +913,20 @@ class Flexyapress_Case{
 
     }
 
+    /**
+     * @return mixed
+     */
+    public function getSimpleAddressWithoutCity() {
+
+        sprintf( '%s %s%s %s',
+            $this->getRoadname(),
+            $this->getRoadnumber(),
+            ! empty( $this->getFloor() ) ? ', ' . strtolower( $this->getFloor() ) : '',
+            strtolower( $this->getDoor() )
+        );
+
+    }
+
 	/**
 	 * @return mixed
 	 */

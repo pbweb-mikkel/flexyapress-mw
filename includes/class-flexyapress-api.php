@@ -1317,7 +1317,7 @@ class Flexyapress_API{
 
     }
 
-    public function get_external_image_url($id, $imageHash, $size = 2000){
+    public function get_external_image_url($id, $imageHash, $size = 1800){
 
         //return "https://".$this->get_client_realm().".mindworking.eu/resources/shops/".$shopNo."/cases/$caseNumber/casemedia/images/$imageHash/customsize.jpg?&width=$size";
         return "https://".$this->get_client_realm().".mindworking.eu/api/mediaData/mediaDataMediaPurposeId/$id/imageHash/$imageHash/imageSize/assets/inline/True?width=$size";
