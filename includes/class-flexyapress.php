@@ -214,7 +214,7 @@ class Flexyapress {
 		$this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_styles');
 		$this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_scripts');
 		$this->loader->add_action('wp_head', $plugin_public, 'mw_head');
-        //$this->loader->add_action('wpcf7_before_send_mail', $api, 'pb_wpcf7_before_send_mail');
+        $this->loader->add_action('wpcf7_before_send_mail', $api, 'pb_wpcf7_before_send_mail');
 
 		$this->loader->add_filter('single_template', $plugin_public, 'case_single');
 		$this->loader->add_filter('template_include', $plugin_public, 'template_include');
@@ -222,7 +222,7 @@ class Flexyapress {
 		$this->loader->add_filter('post_thumbnail_url', $plugin_public, 'set_default_featured_image_url', 20, 3);
 		$this->loader->add_filter('post_thumbnail_id', $plugin_public, 'set_default_featured_image_id', 20, 2);
 		$this->loader->add_filter('flexyapress_realtor_image', $plugin_public, 'flexyapress_realtor_image', 10, 1);
-        //$this->loader->add_filter( 'wpcf7_form_tag', $api, 'load_wpc7_fields' );
+        $this->loader->add_filter( 'wpcf7_form_tag', $api, 'load_wpc7_fields' );
 
 	}
 

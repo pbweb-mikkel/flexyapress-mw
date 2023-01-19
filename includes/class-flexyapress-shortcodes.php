@@ -102,5 +102,4 @@ class Flexyapress_Shortcodes {
         return ob_get_clean();
     }
 
-
 }

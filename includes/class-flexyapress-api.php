@@ -1795,17 +1795,101 @@ class Flexyapress_API{
     }
 
 
+    function load_wpc7_fields( $form_tag )
+    {
+        global $post;
+
+        $id = $post->ID;
+        if(!empty($_POST['wpb_pcf_post_id'])){
+            $id = $_POST['wpb_pcf_post_id'];
+        }
+
+        if ( $form_tag['name'] == 'caseKey' ) {
+            $form_tag['values'][] = get_post_meta($id, 'caseKey', true);
+        }else if ( $form_tag['name'] == 'consentIdGlobal' || $form_tag['name'] == 'consentIdGlobalWithContact' || $form_tag['name'] == 'consentIdGlobalWithoutContact' ) {
+            $consent = false;
+            switch ($form_tag['raw_values'][0]){
+                case 'Presentation':
+                    $consent = Flexyapress_API::getConsents('Presentation');
+                    break;
+                case 'OpenHouse':
+                    $consent = Flexyapress_API::getConsents('OpenHouse');
+                    break;
+                case 'Contact':
+                    $consent = Flexyapress_API::getConsents('Contact');
+                    break;
+                case 'ContactEmployee':
+                    $consent = Flexyapress_API::getConsents('ContactEmployee');
+                    break;
+                case 'SalesValuation':
+                    $consent = Flexyapress_API::getConsents('SalesValuation');
+                    break;
+                case 'SalesMaterialWithContact':
+                    $consent = Flexyapress_API::getConsents('SalesMaterialWithContact');
+                    break;
+                case 'SalesMaterial':
+                    $consent = Flexyapress_API::getConsents('SalesMaterial');
+                    break;
+            }
+
+            if(!empty($consent)){
+                $form_tag['values'] = [$consent['id']];
+            }
+
+        }else if ( $form_tag['name'] == 'caseNo' ) {
+            $form_tag['values'][] = get_post_meta($id, 'caseNumber', true);
+        }else if ( $form_tag['name'] == 'openHouseId' ) {
+            $oh = get_field('openhouseDatesTotal', $id);
+            if($oh){
+                $form_tag['values'][] = $oh[0]['id'];
+            }
+        } else if ( $form_tag['name'] == 'openHouseStartTime' ) {
+            $oh = get_field('openhouseDatesTotal', $id);
+            if($oh){
+                $form_tag['values'][] = $oh[0]['dateStart'];
+            }
+        }else if($form_tag['type'] == 'acceptance'){
+
+            $consent = false;
+            switch ($form_tag['name']){
+                case 'Presentation':
+                    $consent = Flexyapress_API::getConsents('Presentation');
+                    break;
+                case 'Contact':
+                    $consent = Flexyapress_API::getConsents('Contact');
+                    break;
+                case 'OpenHouse':
+                    $consent = Flexyapress_API::getConsents('OpenHouse');
+                    break;
+                case 'ContactEmployee':
+                    $consent = Flexyapress_API::getConsents('ContactEmployee');
+                    break;
+                case 'SalesValuation':
+                    $consent = Flexyapress_API::getConsents('SalesValuation');
+                    break;
+                case 'SalesMaterialWithContact':
+                    $consent = Flexyapress_API::getConsents('SalesMaterialWithContact');
+                    break;
+                case 'SalesMaterial':
+                    $consent = Flexyapress_API::getConsents('SalesMaterial');
+                    break;
+            }
+
+            if(!empty($consent)){
+                $form_tag['content'] = strip_tags($consent['text']);
+            }
+        }
+
+        return $form_tag;
+    }
+
+
     function pb_wpcf7_before_send_mail($cf7){
         $wpcf = WPCF7_ContactForm::get_current();
-        $form_ids = [
-            (int) get_post_meta((int) get_option('flexyapress')['documents-form-id'], '_wpb_pcf__form_id', true),
-            (int) get_post_meta((int) get_option('flexyapress')['presentation-form-id'], '_wpb_pcf__form_id', true),
-            (int) get_post_meta((int) get_option('flexyapress')['openhouse-form-id'], '_wpb_pcf__form_id', true)
-        ];
+        $submission = WPCF7_Submission::get_instance();
+        $data = $submission->get_posted_data();
 
-        if(in_array($wpcf->id(), $form_ids)) {
-            $submission = WPCF7_Submission::get_instance();
-            $data = $submission->get_posted_data();
+        if(array_key_exists('buyerActionType', $data)) {
 
 			if($data['contactAccepted'][0]){
 				$data['contactAccepted'] = true;
@@ -1819,13 +1903,6 @@ class Flexyapress_API{
 				$data['sendEmail'] = false;
 			}
 
-			/*if ($data['contactAccepted'][0] == 'Ja') {
-                $data['contactAccepted'] = true;
-                $data['sendEmail'] = true;
-            } else if($data['contactAccepted'][0] == 'Nej') {
-                $data['contactAccepted'] = false;
-                $data['sendEmail'] = false;
-            }*/
             $this->order($data);
         }
     }
