@@ -478,6 +478,26 @@ class Flexyapress_Case{
         $this->caseType = $caseType;
     }
 
+    public function getPrettyCaseType(){
+        $types = [
+            'SalesCase' => 'Salg',
+            'RentalCase' => 'Udlejning',
+            'BusinessSalesCase' => 'Salg',
+            'BusinessRentalCase' => 'Udlejning',
+            'LoanCase'          => 'Udlån'
+        ];
+        if(!$this->getCaseType() || !array_key_exists($this->getCaseType(), $types)){
+            return '';
+        }
+
+        return $types[$this->getCaseType()];
+
+    }
+
+    public function isRentalCase(){
+        return in_array($this->getCaseType(), ['RentalCase', 'BusinessRentalCase']);
+    }
+
     /**
      * @return mixed
      */
