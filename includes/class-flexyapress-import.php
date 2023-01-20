@@ -14,7 +14,6 @@ class Flexyapress_Import{
 	}
 
 	public function import_cases($force = false, $debug = false, $status = '[ForSale, Sold, UnderSale, BeforeSale, FinallyTrade]'){
-
 		//global $wpdb;
     	//$results = $wpdb->query( "TRUNCATE TABLE {$wpdb->prefix}flexyapress_log");
 
@@ -338,6 +337,22 @@ class Flexyapress_Import{
 
         }
 
+        $published_date = 0;
+
+        if($c->statusChangeCollection){
+            foreach ($c->statusChangeCollection as $scc){
+                if($scc->to == 'ForSale' && strtotime($scc->timeOfChange) > $published_date){
+                    $published_date = strtotime($scc->timeOfChange);
+                }
+            }
+        }
+
+        if($published_date){
+            $published_date = date('c', $published_date);
+        }else{
+            $published_date = $c->createdDate;
+        }
+
         $announceText1 = null;
         $announceText2 = null;
         $announceText3 = null;
@@ -372,7 +387,7 @@ class Flexyapress_Import{
         $case->setStatus($sale_status);
         $case->setReserved($c->status == 'UnderSale' ?: false);
         $case->setNoAdvertisement($c->noAdvertisement);
-        $case->setPublishedDate($c->createdDate);
+        $case->setPublishedDate($published_date);
         //$case->setSoldDate(($c->status == 'SOLD' ?  : null));
         if($broker){
             $case->setRealtor($broker->id);
