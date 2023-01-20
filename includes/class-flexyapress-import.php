@@ -337,21 +337,8 @@ class Flexyapress_Import{
 
         }
 
-        $published_date = 0;
+        $published_date = !empty($c->firstListingDate) ? $c->firstListingDate : $c->createdDate;
 
-        if($c->statusChangeCollection){
-            foreach ($c->statusChangeCollection as $scc){
-                if($scc->to == 'ForSale' && strtotime($scc->timeOfChange) > $published_date){
-                    $published_date = strtotime($scc->timeOfChange);
-                }
-            }
-        }
-
-        if($published_date){
-            $published_date = date('c', $published_date);
-        }else{
-            $published_date = $c->createdDate;
-        }
 
         $announceText1 = null;
         $announceText2 = null;

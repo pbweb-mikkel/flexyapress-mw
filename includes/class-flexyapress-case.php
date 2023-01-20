@@ -642,13 +642,13 @@ class Flexyapress_Case{
 			$c .= '<div class="flag flag-custom">';
 				$c .= $this->getTag();
 			$c .= '</div>';
-		}else if($this->getPriceReductionDate() && $this->getPriceReductionDate() <> $this->getPublishedDate() && strtotime($this->getPriceReductionDate()) > strtotime('-14 days')){
+		}else if(strtotime($this->getPublishedDate()) > strtotime('-14 days')){
+            $c .= '<div class="flag flag-new">';
+            $c .= __('Nyhed', 'flexyapress');
+            $c .= '</div>';
+        }else if($this->getPriceReductionDate() && $this->getPriceReductionDate() <> $this->getPublishedDate() && strtotime($this->getPriceReductionDate()) > strtotime('-14 days')){
 			$c .= '<div class="flag flag-newprice">';
 				$c .= __('Ny pris', 'flexyapress');
-			$c .= '</div>';
-		}else if(strtotime($this->getPublishedDate()) > strtotime('-14 days')){
-			$c .= '<div class="flag flag-new">';
-				$c .= __('Nyhed', 'flexyapress');
 			$c .= '</div>';
 		}
 
