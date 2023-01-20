@@ -180,7 +180,7 @@ class Flexyapress_Case{
 
 			'ID'			    => $this->getPostID(),
 			'post_title'	    => Flexyapress_Helpers::create_post_title($this->getRoadname(), $this->getRoadnumber(), $this->getFloor(), $this->getDoor(), $this->getZipcode(), $this->getCity()),
-			'post_name'		    => Flexyapress_Helpers::create_post_slug($this->getRoadname(), $this->getRoadnumber(), $this->getFloor(), $this->getDoor(), $this->getZipcode(), $this->getCity()),
+			'post_name'		    => Flexyapress_Helpers::create_post_slug($this->getRoadname(), $this->getRoadnumber(), $this->getFloor(), $this->getDoor(), $this->getZipcode(), $this->getCity(), $this->getCaseNumber()),
 			'post_author'		=>	1,
 			'post_type'		    =>	'sag',
 			'post_status'	    =>	'publish',

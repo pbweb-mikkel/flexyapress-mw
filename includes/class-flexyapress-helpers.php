@@ -262,16 +262,17 @@ class Flexyapress_Helpers{
 
 	}
 
-	public static function create_post_slug($roadname = '', $roadnumber = '', $floor = '', $door = '', $zipcode = '', $city = ''){
+	public static function create_post_slug($roadname = '', $roadnumber = '', $floor = '', $door = '', $zipcode = '', $city = '', $casenumber = ''){
 
 
-		$formatted_address = sprintf( '%s-%s-%s-%s%s%s',
+		$formatted_address = sprintf( '%s-%s-%s-%s%s%s-%s',
 			! empty($city ) ? self::remove_special_chars($city) : '',
 			! empty( $zipcode ) ? self::remove_special_chars($zipcode) : '',
 			! empty( $roadname ) ? self::remove_special_chars($roadname) : '',
 			! empty( $roadnumber ) ? self::remove_special_chars($roadnumber) : '',
 			! empty( $floor ) ? '-' . strtolower( $floor ) : '',
-			! empty( $door ) ? '-' . strtolower( $door ) : ''
+			! empty( $door ) ? '-' . strtolower( $door ) : '',
+            ! empty( $casenumber ) ? self::remove_special_chars($casenumber) : ''
 		);
 
 		return $formatted_address;
