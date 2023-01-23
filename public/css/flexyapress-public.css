@@ -74,6 +74,7 @@
 }
 :fullscreen .property-images-container #property-images {
   width: 100%;
+  height: 100%;
   flex: 1;
 }
 :fullscreen .property-images-container .flags {
@@ -460,9 +461,14 @@
   height: 40px;
   display: block;
 }
-.property-single #property-images .slide {
+.property-single #property-images {
   height: 1080px;
   max-height: 100vh;
+}
+.property-single #property-images .slick-track, .property-single #property-images .slick-list, .property-single #property-images .slick-slide {
+  height: 100%;
+}
+.property-single #property-images .slide {
   background: #000;
 }
 .property-single #property-images .slide iframe {

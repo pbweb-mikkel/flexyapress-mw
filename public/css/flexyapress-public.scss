@@ -30,6 +30,7 @@ $font-primary: var( --e-global-typography-primary-font-family ), Sans-serif;
 
       #property-images{
         width: 100%;
+        height: 100%;
         flex:1;
       }
 
@@ -541,9 +542,14 @@ $font-primary: var( --e-global-typography-primary-font-family ), Sans-serif;
 
   }
   #property-images{
+    height: 1080px;
+    max-height: 100vh;
+
+    .slick-track, .slick-list, .slick-slide{
+      height: 100%;
+    }
+
     .slide{
-      height: 1080px;
-      max-height: 100vh;
       background:#000;
       iframe{
         position: relative;
