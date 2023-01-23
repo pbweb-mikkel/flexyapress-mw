@@ -314,4 +314,8 @@ class Flexyapress_Public {
 
 	}
 
+    public function pb_allow_oh_on_list($val){
+        return $val;
+    }
+
 }

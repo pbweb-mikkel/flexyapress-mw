@@ -633,7 +633,7 @@ class Flexyapress_Case{
             $c .= '<div class="flag flag-reserved">';
             $c .= __('Købsaftale underskrevet', 'flexyapress');
             $c .= '</div>';
-        }else if($is_single == false && $this->getOpenhouseActive() && $this->getOpenHouseDate()) {
+        }else if($is_single == false && $this->getOpenhouseActive() && $this->getOpenHouseDate() && apply_filters('pb_allow_oh_on_list', true)) {
             $c .= '<div class="flag flag-openhouse">';
             $c .= __('Åbent hus: ', 'flexyapress');
             $c .= $this->getOpenHouseDate();

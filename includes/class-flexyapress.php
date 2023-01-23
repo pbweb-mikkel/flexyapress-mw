@@ -222,6 +222,7 @@ class Flexyapress {
 		$this->loader->add_filter('post_thumbnail_url', $plugin_public, 'set_default_featured_image_url', 20, 3);
 		$this->loader->add_filter('post_thumbnail_id', $plugin_public, 'set_default_featured_image_id', 20, 2);
 		$this->loader->add_filter('flexyapress_realtor_image', $plugin_public, 'flexyapress_realtor_image', 10, 1);
+		$this->loader->add_filter('pb_allow_oh_on_list', $plugin_public, 'pb_allow_oh_on_list', 10, 1);
         $this->loader->add_filter( 'wpcf7_form_tag', $api, 'load_wpc7_fields' );
 
 	}
