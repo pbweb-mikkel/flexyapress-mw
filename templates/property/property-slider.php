@@ -52,7 +52,7 @@
                                 </li>
                                 <?php } ?>
                             </ul>
-                            <a href="<?= get_the_permalink(); ?>">Se detaljer</a>
+                            <a href="<?= get_the_permalink($id); ?>">Se detaljer</a>
                         </div>
                     </div>
                 </div>
