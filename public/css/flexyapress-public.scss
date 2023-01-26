@@ -11,12 +11,11 @@ $font-primary: var( --e-global-typography-primary-font-family ), Sans-serif;
   z-index:100000;
 }
 
-:fullscreen{
-    body, html{
-      overflow: hidden;
-      width:100%;
-      height: 100%;
-    }
+body.fullscreen{
+    overflow: hidden;
+    width:100vw;
+    height: 100vh;
+
     .property-images-container{
       position: fixed !important;
       background:#000;
@@ -493,6 +492,39 @@ $font-primary: var( --e-global-typography-primary-font-family ), Sans-serif;
 
 .property-single{
 
+  .mobile-flags{
+    display:none;
+
+    .flag{
+      display:block;
+      padding:20px;
+      font-size:1rem;
+      line-height: 1.5;
+      background:$color-primary;
+      color:#fff;
+      margin-right:2px;
+      z-index:1;
+
+      .open-house-signup{
+        cursor: pointer;
+        border:2px solid #fff;
+        padding:5px 10px;
+        text-align: center;
+        display: inline-block;
+        border-radius: 5px;
+        margin-top:5px;
+      }
+
+    }
+
+    @media screen and (max-width:767px){
+      display: block;
+    }
+
+  }
+
+
+
   .property-images-container{
     position: relative;
 
@@ -510,6 +542,7 @@ $font-primary: var( --e-global-typography-primary-font-family ), Sans-serif;
         color:#fff;
         margin-right:2px;
         z-index:1;
+        vertical-align: bottom;
 
         .open-house-signup{
           cursor: pointer;
@@ -521,6 +554,16 @@ $font-primary: var( --e-global-typography-primary-font-family ), Sans-serif;
           margin-top:5px;
         }
 
+      }
+
+      @media screen and (max-width:767px){
+        .flag{
+          padding:20px;
+          font-size:1rem;
+        }
+        .flag-openhouse{
+          display: none !important;
+        }
       }
 
     }
@@ -550,6 +593,9 @@ $font-primary: var( --e-global-typography-primary-font-family ), Sans-serif;
     }
 
     .slide{
+      &:not(:first-child){
+        display: none;
+      }
       background:#000;
       iframe{
         position: relative;
@@ -575,6 +621,10 @@ $font-primary: var( --e-global-typography-primary-font-family ), Sans-serif;
         object-fit: contain;
       }
 
+    }
+
+    &.slick-initialized .slide{
+        display: block;
     }
 
     .slick-prev, .slick-next{
@@ -829,8 +879,11 @@ $font-primary: var( --e-global-typography-primary-font-family ), Sans-serif;
   @media screen and (max-width:1024px){
 
     #property-images{
+
+
+
       .slide{
-        height: 800px;
+        //height: 800px;
       }
     }
 
@@ -848,8 +901,11 @@ $font-primary: var( --e-global-typography-primary-font-family ), Sans-serif;
   @media screen and (max-width:1024px){
 
     #property-images{
+      aspect-ratio: 16/10;
+      height: auto;
+      max-height: none;
       .slide{
-        height: 800px;
+        //height: 800px;
       }
     }
 
@@ -867,7 +923,7 @@ $font-primary: var( --e-global-typography-primary-font-family ), Sans-serif;
   @media screen and (max-width: 768px){
     #property-images{
       .slide{
-        height: 400px;
+        //height: 400px;
       }
     }
   }

@@ -79,7 +79,9 @@
                         </div>
                         <div class="fullscreen"><img width="40" height="40" src="<?= WP_PLUGIN_URL ?>/flexyapress-mw/public/img/icons/fullscreen.svg" loading="lazy"><img width="40" height="40" src="<?= WP_PLUGIN_URL ?>/flexyapress-mw/public/img/icons/exit_fullscreen.svg" loading="lazy" style="display: none;"></div>
                     </div>
-
+                    <div class="mobile-flags">
+                        <?= $case->printOpenHouseFlag(true) ?>
+                    </div>
                     <div class="property-media-actions">
                         <?php if($photos){ ?>
                             <div id="go-to-images" class="action">

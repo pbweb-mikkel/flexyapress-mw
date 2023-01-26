@@ -179,9 +179,9 @@
     }
 
     function toggleFullscreen() {
-        if (!document.fullscreenElement) {
+        if (!$('body').hasClass('fullscreen')) {
             openFullscreen();
-        } else if (document.exitFullscreen) {
+        } else if ($('body').hasClass('fullscreen')) {
             closeFullscreen();
         }
     }
