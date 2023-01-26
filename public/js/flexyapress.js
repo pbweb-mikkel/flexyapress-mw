@@ -186,6 +186,17 @@
         }
     }
 
+    function fullscreenchanged (event) {
+        // document.fullscreenElement will point to the element that
+        // is in fullscreen mode if there is one. If there isn't one,
+        // the value of the property is null.
+        if (!document.fullscreenElement) {
+            closeFullscreen();
+        }
+    }
+
+    document.addEventListener('fullscreenchange', fullscreenchanged);
+
     /* View in fullscreen */
     function openFullscreen() {
         var elem = document.documentElement;
