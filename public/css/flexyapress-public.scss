@@ -587,6 +587,12 @@ body.fullscreen{
         width:40px;
         height: 40px;
         display: block;
+
+        @include for-screen-sm-max{
+            width:30px;
+            height: 30px;
+        }
+
       }
     }
 
@@ -696,6 +702,15 @@ body.fullscreen{
         background-repeat: no-repeat;
         background-position: center center;
         background-size:contain;
+      }
+    }
+
+    @include for-screen-sm-max{
+      .slick-prev, .slick-next{
+        &:after{
+          width:30px;
+          height: 30px;
+        }
       }
     }
 
@@ -912,7 +927,7 @@ body.fullscreen{
       height: auto;
       max-height: none;
       .slide{
-        //height: 800px;
+        height: 100%;
       }
     }
 
