@@ -1,5 +1,5 @@
 <?php
-define( 'FLEXYAPRESS_VERSION', '1.23' );
+define( 'FLEXYAPRESS_VERSION', '1.24' );
 /**
  * The plugin bootstrap file
  *
@@ -16,7 +16,7 @@ define( 'FLEXYAPRESS_VERSION', '1.23' );
  * Plugin Name:       PB Web - Mindworking
  * Plugin URI:        https://pbweb.dk/flexyapress
  * Description:       Dette plugin sørger for dataintegration med Mindworking.
- * Version:           1.23
+ * Version:           1.24
  * Author:            PB Web
  * Author URI:        https://pbweb.dk
  * License:           GPL-2.0+
