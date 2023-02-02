@@ -635,7 +635,11 @@ class Flexyapress_Case{
             $c .= '</div>';
         }else if($is_single == false && $this->getOpenhouseActive() && $this->getOpenHouseDate() && apply_filters('pb_allow_oh_on_list', true)) {
             $c .= '<div class="flag flag-openhouse">';
-            $c .= __('Åbent hus: ', 'flexyapress');
+            if($this->getOpenhouseSignupRequired() && apply_filters('pb_allow_oh_signuptext_on_list', true)){
+                $c .= __('Åbent hus med tilmelding: ', 'flexyapress');
+            }else{
+                $c .= __('Åbent hus: ', 'flexyapress');
+            }
             $c .= $this->getOpenHouseDate();
             $c .= '</div>';
 		}else if($this->getTag()){

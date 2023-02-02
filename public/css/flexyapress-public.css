@@ -161,6 +161,12 @@ body.fullscreen .property-images-container .fullscreen img:last-child {
   color: #fff;
   padding: 10px 25px;
 }
+.property-list-container .property-list .properties .property .flag-openhouse {
+  background: var(--pb-primary);
+  color: #fff;
+  padding: 10px 25px;
+  text-align: center;
+}
 .property-list-container .property-list .properties .property .content {
   padding: 15px 15px 30px;
 }

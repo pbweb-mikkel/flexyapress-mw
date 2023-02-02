@@ -9,9 +9,10 @@
 	<div class="inner">
 		<?= $case->isActive() ? '<a href="'.get_the_permalink().'">' : ''; ?>
 			<div class="image">
-                <?= $case->printFlag() ?>
+                <?= $case->printFlag(true) ?>
 				<?= '<img src="'.$case->getPrimaryPhoto1000().'" alt="'.$case->getSimpleAddress().'" loading="lazy">'; ?>
 			</div>
+            <?= $case->printOpenHouseFlag() ?>
             <div class="property-title">
                 <h3><span class="address"><?= $case->getSimpleAddressWithoutCity() ?></span><br><span class="city"><?= $case->getZipcode().' '.$case->getCity() ?></span></h3>
             </div>
