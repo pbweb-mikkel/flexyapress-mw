@@ -1903,6 +1903,14 @@ class Flexyapress_API{
 				$data['sendEmail'] = false;
 			}
 
+            if(!$data['name'] && $data['yourname']){
+                $data['name'] = $data['yourname'];
+            }
+
+            if(!$data['email'] && $data['youremail']){
+                $data['email'] = $data['youremail'];
+            }
+
             $this->order($data);
         }
     }
