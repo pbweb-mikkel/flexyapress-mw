@@ -375,7 +375,8 @@ class Flexyapress_Import{
         $case->setReserved($c->status == 'UnderSale' ?: false);
         $case->setNoAdvertisement($c->noAdvertisement);
         $case->setPublishedDate($published_date);
-        //$case->setSoldDate(($c->status == 'SOLD' ?  : null));
+        $case->setSoldDate($c->statusHistorySoldDate);
+        $case->setUnderSaleDate($c->statusHistoryUnderSaleDate);
         if($broker){
             $case->setRealtor($broker->id);
             $case->setRealtorName($broker->firstName.' '.$broker->lastName);

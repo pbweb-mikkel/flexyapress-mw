@@ -321,6 +321,22 @@ if (function_exists('acf_add_local_field_group')):
                 'first_day'         => 1,
             ),
             array(
+                'key'               => 'field_5e202354k3l67',
+                'label'             => 'Reserveret dato',
+                'name'              => 'underSaleDate',
+                'type'              => 'date_time_picker',
+                'instructions'      => '',
+                'required'          => 0,
+                'wrapper'           => array(
+                    'width' => '',
+                    'class' => '',
+                    'id'    => '',
+                ),
+                'display_format'    => 'd-m-Y H:i:s',
+                'return_format'     => 'Y-m-d H:i:s',
+                'first_day'         => 1,
+            ),
+            array(
                 'key'               => 'field_5e202d28cc0fc',
                 'label'             => 'Tilknyttet mægler',
                 'name'              => 'realtor',

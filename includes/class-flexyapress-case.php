@@ -19,6 +19,7 @@ class Flexyapress_Case{
 	private $propertyClass;
 	private $publishedDate;
 	private $soldDate;
+	private $underSaleDate;
 	private $realtor;
 	private $realtorEmail;
 	private $realtorName;
@@ -196,6 +197,7 @@ class Flexyapress_Case{
 										'publishedDate'	        => $this->getPublishedDate(),
 										'publishedDateEpoch'	=> strtotime($this->getPublishedDate()),
 										'soldDate'	            => $this->getSoldDate(),
+										'underSaleDate'	            => $this->getUnderSaleDate(),
 										'realtor'               => $this->getRealtor(),
 										'realtorName'           => $this->getRealtorName(),
 										'realtorEmail'           => $this->getRealtorEmail(),
@@ -767,6 +769,23 @@ class Flexyapress_Case{
 	public function setSoldDate( $soldDate ) {
 		$this->soldDate = $soldDate;
 	}
+
+    /**
+     * @return mixed
+     */
+    public function getUnderSaleDate()
+    {
+        return $this->underSaleDate;
+    }
+
+    /**
+     * @param mixed $underSaleDate
+     */
+    public function setUnderSaleDate($underSaleDate)
+    {
+        $this->underSaleDate = $underSaleDate;
+    }
+
 
 	/**
 	 * @return mixed
