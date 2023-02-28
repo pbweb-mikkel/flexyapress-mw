@@ -44,6 +44,9 @@ class Flexyapress_API{
                           ConnectionFees
                           noAdvertisement
                           status
+                          statusHistorySoldDate
+                          statusHistoryUnderSaleDate
+                          statusHistoryFinallyTradeDate
                           shopNo
                           shop {
                             name
