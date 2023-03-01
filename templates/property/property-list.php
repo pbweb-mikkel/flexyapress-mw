@@ -14,7 +14,7 @@ if($atts['show_search'] == 'true'){
     <div class="inner">
         <div class="title-bar">
             <div class="left-col">
-                <h2 class="with-line"><span class="search-count"></span> <?= __('boliger matchede din søgning', 'flexyapress') ?></h2>
+                <h2 class="with-line"><span class="search-count"></span> <?= $atts['show_only'] == 'business' ? __('ejendomme matchede din søgning', 'flexyapress') : __('boliger matchede din søgning', 'flexyapress') ?></h2>
             </div>
             <div class="right-col">
                 <div class="sortbox">

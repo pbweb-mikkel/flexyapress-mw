@@ -1,5 +1,5 @@
 <?php
-
+$business = false;
 $qargs = array(
 	'post_type' => 'sag',
 	'posts_per_page' => -1,
@@ -23,6 +23,7 @@ if(isset($atts) && $atts['sale_type'] != 'all'){
 }
 
 if(!empty($atts['show_only']) && $atts['show_only'] == 'business'){
+    $business = true;
     $qargs['meta_query'][] = array(
         'key' => 'caseType',
         'value' => ['BusinessSalesCase', 'BusinessRentalCase'],
@@ -109,6 +110,6 @@ if($query->have_posts()) {
         }
     endwhile;
 }else {
-    echo '<div class="no-properties">'.__('Vi har lige nu ingen boliger at vise', 'flexyapress').'</div>';
+    echo '<div class="no-properties">'.($business ? __('Vi har lige nu ingen ejendomme at vise', 'flexyapress') : __('Vi har lige nu ingen boliger at vise', 'flexyapress')).'</div>';
 }
 ?>

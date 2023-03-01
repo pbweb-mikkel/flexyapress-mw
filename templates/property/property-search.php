@@ -39,7 +39,7 @@
             </div>
             <div class="right-col">
                 <div class="field-button">
-                    <input type="text" id="search-text" name="q" placeholder="Søg på f.eks. Villa, by, postnummer" <?= $_GET['q'] ? 'value="'.$_GET['q'].'"' : ''; ?> >
+                    <input type="text" id="search-text" name="q" placeholder="<?= $atts['show_only'] == 'business' ? 'Søg på f.eks. kontor, by, postnummer' : 'Søg på f.eks. Villa, by, postnummer' ?>" <?= $_GET['q'] ? 'value="'.$_GET['q'].'"' : ''; ?> >
                     <input type="hidden" name="minPrice">
                     <input type="hidden" name="maxPrice">
                     <input type="hidden" name="sort">

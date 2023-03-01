@@ -15,7 +15,7 @@
                     $photos = $case->getUnserializedImageOrder();
                     $drawings = $case->getUnserializedDrawingOrder();
                 }else{
-                    $photos = $case->getUnserializedPhotos();
+                    $photos = $case->getImagesExternal();
                     $drawings = $case->getUnserializedDrawings();
                     $photos1000 = $case->getUnserializedPhotos1000();
                     $photosThumb = $case->getUnserializedThumbnails();
@@ -42,7 +42,10 @@
                                     if($case->get_save_images_locally()){
                                         echo wp_get_attachment_image($p, 'full');
                                     }else{
-                                        echo '<img src="'.$p.'">';
+                                        echo '<img src="'.$p['url'].'">';
+                                    }
+                                    if($p['description']){
+                                        echo '<div class="image-description">'.$p['description'].'</div>';
                                     }
                                     echo '</div>';
                                     $count++;
@@ -111,6 +114,31 @@
                         <div class="property-description">
                             <div class="property-title"><h1><?= $case->getSimpleAddress() ?></h1> </div>
                             <?php the_content(); ?>
+                            <div class="share-property">
+                                <strong class="share-property-title">Del ejendommen</strong>
+                                <ul>
+                                    <li><a title="Del på Facebook" href="https://www.facebook.com/sharer/sharer.php?u=<?= urlencode(get_the_permalink()) ?>" target="_blank"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="41" height="41" viewBox="0 0 41 41">
+                                                    <g transform="translate(-278 -1698)">
+                                                        <path d="M13.257,13.112V8.449h3.761V6.1a6.136,6.136,0,0,1,1.647-4.322A5.241,5.241,0,0,1,22.658,0h3.736V4.664H22.658a.823.823,0,0,0-.659.4,1.636,1.636,0,0,0-.293.989V8.448h4.687v4.663H21.705V24.418H17.017V13.112Z" transform="translate(278.138 1705.842)" fill="currentColor"/>
+                                                        <g transform="translate(278 1698)" fill="none" stroke="currentColor" stroke-width="2">
+                                                            <circle cx="20.5" cy="20.5" r="20.5" stroke="none"/>
+                                                            <circle cx="20.5" cy="20.5" r="19.5" fill="none"/>
+                                                        </g>
+                                                    </g>
+                                                </svg>
+                                            </span></a></li>
+                                    <li><a title="Del på Linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=<?= urlencode(get_the_permalink()) ?>" target="_blank"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="41" height="41" viewBox="0 0 41 41">
+                                                    <g transform="translate(-385 -1698)">
+                                                        <g transform="translate(385 1698)" fill="none" stroke="currentColor" stroke-width="2">
+                                                            <circle cx="20.5" cy="20.5" r="20.5" stroke="none"/>
+                                                            <circle cx="20.5" cy="20.5" r="19.5" fill="none"/>
+                                                        </g>
+                                                        <path d="M4.5,20.094H.332V6.679H4.5ZM2.413,4.849A2.424,2.424,0,1,1,4.825,2.413,2.433,2.433,0,0,1,2.413,4.849ZM20.09,20.094H15.933V13.564c0-1.556-.031-3.552-2.166-3.552-2.166,0-2.5,1.691-2.5,3.44v6.643H7.107V6.679h4v1.83h.058A4.377,4.377,0,0,1,15.1,6.342c4.216,0,4.991,2.776,4.991,6.383v7.369Z" transform="translate(396.138 1706.65)" fill="currentColor"/>
+                                                    </g>
+                                                </svg>
+                                            </span></a></li>
+                                </ul>
+                            </div>
                         </div>
                         <div class="property-info">
                             <div class="spec-list">
