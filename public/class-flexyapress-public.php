@@ -216,6 +216,19 @@ class Flexyapress_Public {
         return $html;
     }
 
+    public function add_case_og_image(){
+        global $post;
+        if(get_post_type() != 'sag'){
+            return;
+        }
+
+        if(has_post_thumbnail()) {
+            $thumbnail_src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' );
+//          echo '<meta property="og:image" content="' . esc_attr( $thumbnail_src[0] ) . '"/>';
+            echo '<meta property="og:image:secure_url" content="'. esc_attr( $thumbnail_src[0] ) .'" /> ';
+        }
+    }
+
     public function set_default_featured_image_url($url, $post_id, $size){
         if(is_object($post_id)){
             $post_id = $post_id->ID;
