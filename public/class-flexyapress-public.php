@@ -225,16 +225,17 @@ class Flexyapress_Public {
 
         if($thumb = get_field('primaryPhoto1000')){
             echo '<meta property="og:image:secure_url" content="'. esc_attr( $thumb ) .'" /> ';
+            echo '<meta property="og:image" content="'. esc_attr( $thumb ) .'" /> ';
         }else if(has_post_thumbnail()) {
             $thumbnail_src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' );
-//          echo '<meta property="og:image" content="' . esc_attr( $thumbnail_src[0] ) . '"/>';
+            echo '<meta property="og:image" content="' . esc_attr( $thumbnail_src[0] ) . '"/>';
             echo '<meta property="og:image:secure_url" content="'. esc_attr( $thumbnail_src[0] ) .'" /> ';
         }
 
         if($title = get_field('title')){
-            echo '<meta property="og:description" content="'. $title .'" /> ';
+            echo '<meta property="og:description" content="'. strip_tags($title) .'" /> ';
         }else if($excerpt = get_the_excerpt()){
-            echo '<meta property="og:description" content="'. $excerpt .'" /> ';
+            echo '<meta property="og:description" content="'. strip_tags($excerpt) .'" /> ';
         }
 
 
