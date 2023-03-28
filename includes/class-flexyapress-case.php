@@ -951,7 +951,7 @@ class Flexyapress_Case{
             $this->getRoadname(),
             $this->getRoadnumber(),
             ! empty( $this->getFloor() ) ? ', ' . str_replace('..', '.',strtolower( $this->getFloor() ).'.') : '',
-            strtolower( $this->getDoor() )
+            str_replace('..', '.',strtolower( $this->getDoor() ).'.')
         );
 
     }
@@ -965,7 +965,7 @@ class Flexyapress_Case{
             $this->getRoadname(),
             $this->getRoadnumber(),
             ! empty( $this->getFloor() ) ? ', ' . str_replace('..', '.',strtolower( $this->getFloor() ).'.') : '',
-            strtolower( $this->getDoor() )
+            str_replace('..', '.',strtolower( $this->getDoor() ).'.')
         );
 
     }
