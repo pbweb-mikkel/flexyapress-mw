@@ -950,7 +950,7 @@ class Flexyapress_Case{
         sprintf( '%s %s%s %s',
             $this->getRoadname(),
             $this->getRoadnumber(),
-            ! empty( $this->getFloor() ) ? ', ' . strtolower( $this->getFloor() ).'.' : '',
+            ! empty( $this->getFloor() ) ? ', ' . str_replace('..', '.',strtolower( $this->getFloor() ).'.') : '',
             strtolower( $this->getDoor() )
         );
 
@@ -964,7 +964,7 @@ class Flexyapress_Case{
         return sprintf( '%s %s%s %s',
             $this->getRoadname(),
             $this->getRoadnumber(),
-            ! empty( $this->getFloor() ) ? ', ' . strtolower( $this->getFloor() ).'.' : '',
+            ! empty( $this->getFloor() ) ? ', ' . str_replace('..', '.',strtolower( $this->getFloor() ).'.') : '',
             strtolower( $this->getDoor() )
         );
 
