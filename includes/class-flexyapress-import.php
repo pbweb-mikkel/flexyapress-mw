@@ -335,6 +335,30 @@ class Flexyapress_Import{
                 }
             }
 
+            if(!$broker){
+                foreach ($c->brokers as $b){
+                    if($b->role == 'CommissionBroker' && $b->visibleOnWebsite){
+                        $broker = $b;
+                    }
+                }
+            }
+
+            if(!$broker){
+                foreach ($c->brokers as $b){
+                    if($b->role == 'AccountableBroker' && $b->visibleOnWebsite){
+                        $broker = $b;
+                    }
+                }
+            }
+
+            if(!$broker){
+                foreach ($c->brokers as $b){
+                    if($b->role == 'Caseworker' && $b->visibleOnWebsite){
+                        $broker = $b;
+                    }
+                }
+            }
+
         }
 
         $published_date = !empty($c->firstListingDate) ? $c->firstListingDate : $c->createdDate;

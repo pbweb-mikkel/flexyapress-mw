@@ -901,7 +901,7 @@ class Flexyapress_Case{
 		$realtor = new Flexyapress_Realtor();
 		$id = $this->getRealtor();
 
-		if(!$id){
+		if(!$id && $this->getRealtorEmail()){
 			$id = Flexyapress_Realtor::findIdByEmail($this->getRealtorEmail());
 		}
 		if($id){
