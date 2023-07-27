@@ -190,6 +190,17 @@ class Flexyapress_Public {
         return $single;
     }
 
+    public function redirect_cpt_archive() {
+        global $wp_query;
+
+        if( is_post_type_archive( 'sag' ) ) {
+            $wp_query->set_404();
+            status_header(404);
+            nocache_headers();
+            include( get_query_template( '404' ) );
+            die();
+        }
+    }
 
     // add a link to the WP Toolbar
     function pb_toolbar_links($wp_admin_bar) {

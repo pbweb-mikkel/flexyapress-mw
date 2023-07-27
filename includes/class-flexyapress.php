@@ -216,7 +216,7 @@ class Flexyapress {
 		$this->loader->add_action('wp_head', $plugin_public, 'mw_head');
 		$this->loader->add_action('wp_head', $plugin_public, 'add_case_og_image', 2);
         $this->loader->add_action('wpcf7_before_send_mail', $api, 'pb_wpcf7_before_send_mail');
-
+        $this->loader->add_action('template_redirect', $plugin_public, 'redirect_cpt_archive');
 		$this->loader->add_filter('single_template', $plugin_public, 'case_single');
 		$this->loader->add_filter('template_include', $plugin_public, 'template_include');
 		$this->loader->add_filter('post_thumbnail_html', $plugin_public, 'set_default_featured_image', 20, 5);
