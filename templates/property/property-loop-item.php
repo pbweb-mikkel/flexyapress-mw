@@ -3,11 +3,10 @@
     $case->fetch();
 	$price = $case->getPrettyPrice();
 	$date = $case->getPublishedDate();
-
 ?>
 <div class="property" data-aos="fade-up">
 	<div class="inner">
-		<?= $case->isActive() ? '<a href="'.get_the_permalink().'">' : ''; ?>
+		<?= $case->isActive() || get_option('flexyapress')['allow-sold-view'] ? '<a href="'.get_the_permalink().'">' : ''; ?>
 			<div class="image">
                 <?= $case->printFlag(true) ?>
 				<?= '<img src="'.$case->getPrimaryPhoto1000().'" alt="'.$case->getSimpleAddress().'" loading="lazy">'; ?>

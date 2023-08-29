@@ -123,14 +123,15 @@ class Flexyapress_Public {
 
 	public function case_single($single) {
         global $post, $wp_query;
-
         /* Checks for single template by post type */
         if ( $post->post_type == 'sag' ) {
 
-            if(get_post_meta($post->ID, 'status', true) == 'SOLD'){
+            $options = get_option($this->plugin_name);
+            if(empty($options['allow-sold-view']) && get_post_meta($post->ID, 'status', true) == 'SOLD'){
                 $wp_query->set_404();
                 status_header( 404 );
                 get_template_part( 404 );
+                die();
                 return;
             }
 

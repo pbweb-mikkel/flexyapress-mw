@@ -45,6 +45,7 @@
 		$policy_url = $options['policy-url'] ?: '';
         $primary_color = $options['primary-color'] ?: '#000';
         $no_styling = $options['no-styling'] ?: 0;
+        $allow_sold_view = $options['allow-sold-view'] ?: 0;
 
 
 		?>
@@ -112,6 +113,10 @@
                 <tr>
                     <th><label for="<?php echo $this->plugin_name; ?>-no-styling"><?php esc_attr_e('No styling', $this->plugin_name); ?></label></th>
                     <td><input type="checkbox" id="<?php echo $this->plugin_name; ?>-no-styling" name="<?php echo $this->plugin_name; ?>[no-styling]" <?php if(!empty($no_styling)) echo "checked"; ?>/></td>
+                </tr>
+                <tr>
+                    <th><label for="<?php echo $this->plugin_name; ?>-allow-sold-view"><?php esc_attr_e('Tillad at vise solgte sager', $this->plugin_name); ?></label></th>
+                    <td><input type="checkbox" id="<?php echo $this->plugin_name; ?>-allow-sold-view" name="<?php echo $this->plugin_name; ?>[allow-sold-view]" <?php if(!empty($allow_sold_view)) echo "checked"; ?>/></td>
                 </tr>
             </tbody>
         </table>

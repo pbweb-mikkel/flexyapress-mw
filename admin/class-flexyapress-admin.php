@@ -299,6 +299,7 @@ class Flexyapress_Admin {
 		$valid['case-slug'] = (isset($input['case-slug']) && !empty($input['case-slug'])) ? sanitize_text_field( $input['case-slug']) : '';
         $valid['save-images-locally'] = (isset($input['save-images-locally']) && !empty($input['save-images-locally'])) ? 1 : 0;
         $valid['no-styling'] = (isset($input['no-styling']) && !empty($input['no-styling'])) ? 1 : 0;
+        $valid['allow-sold-view'] = (isset($input['allow-sold-view']) && !empty($input['allow-sold-view'])) ? 1 : 0;
         $valid['business-enabled'] = (isset($input['business-enabled']) && !empty($input['business-enabled'])) ? 1 : 0;
 		$valid['base-url-business'] = (isset($input['base-url-business']) && !empty($input['base-url-business'])) ? sanitize_text_field( $input['base-url-business']) : '';
         $valid['token-business'] = (isset($input['token-business']) && !empty($input['token-business'])) ? sanitize_text_field( $input['token-business']) : '';
