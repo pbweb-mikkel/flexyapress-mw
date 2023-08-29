@@ -33,6 +33,6 @@
                     <?php } ?>
                 </div>
 			</div>
-        <?= $case->isActive() ? '</a>' : ''; ?>
+        <?= $case->isActive() || get_option('flexyapress')['allow-sold-view'] ? '</a>' : ''; ?>
 	</div>
 </div>
