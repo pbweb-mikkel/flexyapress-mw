@@ -253,6 +253,17 @@ class Flexyapress_Public {
 
     }
 
+    public function add_case_meta_description($desc){
+        global $post;
+        if(get_post_type() != 'sag'){
+            return $desc;
+        }
+
+        $desc = get_the_content($post->ID);
+        return substr($desc, 0, 160);
+
+    }
+
     public function set_default_featured_image_url($url, $post_id, $size){
         if(is_object($post_id)){
             $post_id = $post_id->ID;
