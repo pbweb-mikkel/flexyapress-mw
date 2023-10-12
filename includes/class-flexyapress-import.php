@@ -542,6 +542,20 @@ class Flexyapress_Import{
             $case->setOpenhouseDatesTotal(array());
         }
 
+		$buildings = [];
+		if(!empty($c->buildings) && is_array($c->buildings)){
+			foreach ($c->buildings as $b){
+				$temp = [
+					'description' => $b->description,
+					'builtUpArea' => $b->builtUpArea,
+					'mainBuilding' => $b->isMainBuilding
+				];
+				$buildings[] = $temp;
+			}
+		}
+
+		$case->setBuildings($buildings);
+
 		$saved_id = $case->save();
 
 		if($saved_id){

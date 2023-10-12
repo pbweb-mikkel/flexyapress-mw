@@ -1387,6 +1387,9 @@ class Flexyapress_API{
 			return array('type' => "error", 'message' => 'Malformed input');
 		}
 
+		if(!empty($input['message'])){
+			$input['message'] = preg_replace('/[^a-zA-Z0-9_ -?.åæøÅØÆ]/s','',$input['message']);
+		}
 
         if($input['buyerActionType'] == 'PRESENTATION_ORDER' && !$input['date']){
             $input['date'] = date('d-m-Y', strtotime('+1 day'));

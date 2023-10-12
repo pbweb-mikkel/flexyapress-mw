@@ -106,6 +106,7 @@ class Flexyapress_Case{
     private $yearlyRent;
     private $yearlyRentPrArea;
     private $connectionFee;
+	private $buildings;
 
 	/**
 	 * Flexyapress_Case constructor.
@@ -277,7 +278,7 @@ class Flexyapress_Case{
 										'yearlyRent'            => $this->getYearlyRent(),
                                         'yearlyRentPrArea'      => $this->getYearlyRentPrArea(),
                                         'connectionFee'         => $this->getConnectionFee(),
-										'_yoast_wpseo_opengraph-image' => array($this->getPrimaryPhoto1000())
+										'_yoast_wpseo_opengraph-image' => array($this->getPrimaryPhoto1000()),
 									),
 		);
 
@@ -331,6 +332,7 @@ class Flexyapress_Case{
 		$id = wp_insert_post($postarr);
 
         update_field('openhouseDatesTotal', $this->getOpenhouseDatesTotal(), $id);
+        update_field('buildings', $this->getBuildings(), $id);
 
 		return $id;
 
@@ -2592,6 +2594,18 @@ class Flexyapress_Case{
         $this->connectionFee = $connectionFee;
     }
 
+	/**
+	 * @return mixed
+	 */
+	public function getBuildings() {
+		return $this->buildings;
+	}
 
+	/**
+	 * @param mixed $buildings
+	 */
+	public function setBuildings( $buildings ) {
+		$this->buildings = $buildings;
+	}
 
 }
