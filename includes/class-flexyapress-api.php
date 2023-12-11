@@ -1376,6 +1376,7 @@ class Flexyapress_API{
             'comment',
             'consentIdGlobal',
             'openHouseStartTime',
+            'openHouseIdDateStart',
             'openHouseId',
             'dawa-address-id',
             'livesOnAddress'
@@ -1489,7 +1490,16 @@ class Flexyapress_API{
                 $response = $this->order_sales_valuation($qs['consentIdGlobal'], $qs['shopNo'], $qs['name'], $qs['lastName'], $qs['phone'], $qs['email'], $qs['message'], $qs['livesOnAddress'], $qs['dawa-address-id']);
                 break;
             case 'OPENHOUSE_SIGNUP':
-                $response = $this->order_open_house($qs['consentIdGlobal'], $qs['openHouseId'], $qs['openHouseStartTime'], $qs['name'], $qs['lastName'], $qs['phone'], $qs['email'], $qs['message']);
+                if(!empty($qs['openHouseIdDateStart'])){
+                    $parts = explode('||',$qs['openHouseIdDateStart']);
+                    $openhouseId = $parts[0];
+                    $openhouseStartTime = $parts[1];
+                    $response = $this->order_open_house($qs['consentIdGlobal'], $openhouseId, $openhouseStartTime, $qs['name'], $qs['lastName'], $qs['phone'], $qs['email'], $qs['message']);
+                }else {
+                    $response = $this->order_open_house($qs['consentIdGlobal'], $qs['openHouseId'],
+                        $qs['openHouseStartTime'], $qs['name'], $qs['lastName'], $qs['phone'], $qs['email'],
+                        $qs['message']);
+                }
                 break;
         }
 
