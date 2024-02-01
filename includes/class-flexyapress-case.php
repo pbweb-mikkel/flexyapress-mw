@@ -157,6 +157,11 @@ class Flexyapress_Case{
                 continue;
             }
 
+            if($key == 'customCaseFields'){
+                $this->setCustomFields(get_field('customCaseFields', $this->getPostID()));
+                continue;
+            }
+
 
 			$value = array_shift($value);
 			//Go through the easy properties fast
@@ -334,7 +339,6 @@ class Flexyapress_Case{
 
         update_field('openhouseDatesTotal', $this->getOpenhouseDatesTotal(), $id);
         update_field('buildings', $this->getBuildings(), $id);
-        var_dump($this->getCustomFields());
         update_field('customCaseFields', $this->getCustomFields(), $id);
 
 		return $id;
