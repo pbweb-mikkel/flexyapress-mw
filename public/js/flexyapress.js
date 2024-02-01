@@ -422,9 +422,7 @@
                     $('input[type="submit"]',form).hide();
                 },
                 success: function(resp){
-                    //console.log(resp);
                     var data = resp.data;
-                    console.log(data);
                     if(data.type == 'error'){
                         $('.status-message', form).text(data.message).fadeIn();
                         $('input[type="submit"]',form).show();
@@ -435,6 +433,9 @@
                             form.hide();
                             form.siblings('.success-message').fadeIn();
                         })
+                    }else{
+                        $('.status-message', form).text('Der er sket en fejl og vi har ikke modtaget din forespørgsel. Prøv venligst igen eller kontakt os på mail.').fadeIn();
+                        $('input[type="submit"]',form).show();
                     }
 
                     //console.log(data);

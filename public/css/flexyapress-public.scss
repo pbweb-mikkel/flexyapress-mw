@@ -6,6 +6,9 @@
 $color-primary: var( --pb-primary );
 $font-primary: var( --e-global-typography-primary-font-family ), Sans-serif;
 
+*{
+  box-sizing: border-box;
+}
 
 .select2-container{
   z-index:100000;

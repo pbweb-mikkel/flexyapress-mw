@@ -151,6 +151,21 @@ class Flexyapress_API{
                           announceTextInternet
                           announceHeadlineInternet
                           salesPresentationDescription
+                          solutionSpecificCaseFieldValues {
+                                id
+                                value
+                                solutionSpecificCaseField {
+                                id
+                                name
+                                description
+                                dataType
+                                group
+                                order
+                                __typename
+                                }
+                                value
+                                __typename
+                            }
                           announceTexts {
                             headline
                             introText
@@ -285,6 +300,22 @@ class Flexyapress_API{
                           totalGarageBuiltUpArea
                           totalOuthouseBuiltUpArea
                           plotArea
+                          solutionSpecificCaseFieldValues {
+                                id
+                                value
+                                solutionSpecificCaseField {
+                                id
+                                name
+                                description
+                                dataType
+                                group
+                                order
+                                __typename
+                                }
+                                value
+                                __typename
+                            }
+                         
                           totalBuildingArea
                           totalCommercialArea
                           yearRenovated
@@ -476,6 +507,21 @@ class Flexyapress_API{
                           municipalityName
                           roomCount
                           yearBuilt
+                          solutionSpecificCaseFieldValues {
+                                id
+                                value
+                                solutionSpecificCaseField {
+                                id
+                                name
+                                description
+                                dataType
+                                group
+                                order
+                                __typename
+                                }
+                                value
+                                __typename
+                            }
                           totalLivableArea
                           atticArea
                           basementArea
@@ -669,6 +715,21 @@ class Flexyapress_API{
                           yearBuilt
                           totalLivableArea
                           atticArea
+                          solutionSpecificCaseFieldValues {
+                                id
+                                value
+                                solutionSpecificCaseField {
+                                id
+                                name
+                                description
+                                dataType
+                                group
+                                order
+                                __typename
+                                }
+                                value
+                                __typename
+                            }
                           basementArea
                           totalCarportBuiltUpArea
                           totalGarageBuiltUpArea

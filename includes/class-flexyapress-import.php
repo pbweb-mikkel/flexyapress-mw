@@ -363,6 +363,24 @@ class Flexyapress_Import{
 
         $published_date = !empty($c->firstListingDate) ? $c->firstListingDate : $c->createdDate;
 
+        $custom_fields = null;
+        if(!empty($c->solutionSpecificCaseFieldValues)){
+            $custom_fields = [];
+            foreach ($c->solutionSpecificCaseFieldValues as $cf){
+                if(empty($cf->solutionSpecificCaseField)){
+                    continue;
+                }
+                $field = $cf->solutionSpecificCaseField;
+                $temp = [
+                    'id' => $field->id,
+                    'name' => $field->name,
+                    'value' => $cf->value
+                ];
+                $custom_fields[] = $temp;
+            }
+        }
+
+
 
         $announceText1 = null;
         $announceText2 = null;
@@ -410,7 +428,7 @@ class Flexyapress_Import{
             $case->setRealtorImage($broker->imageUrlAsset);
             $case->setRealtorTitle($broker->title);
         }
-
+        $case->setCustomFields($custom_fields);
         if(!empty($c->ConnectionFees)){
             $case->setConnectionFee($c->ConnectionFees);
         }else{

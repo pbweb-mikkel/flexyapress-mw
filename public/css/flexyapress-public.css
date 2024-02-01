@@ -52,6 +52,10 @@
   cursor: hand;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 .select2-container {
   z-index: 100000;
 }
@@ -282,12 +286,10 @@ body.fullscreen .property-images-container .fullscreen img:last-child {
 .property-list-container #property-search #property-search-form #price-max {
   right: 0;
 }
-.property-list-container #property-search #property-search-form ::-webkit-input-placeholder {
-  /* Edge */
+.property-list-container #property-search #property-search-form ::-webkit-input-placeholder { /* Edge */
   color: #a3a9bd;
 }
-.property-list-container #property-search #property-search-form :-ms-input-placeholder {
-  /* Internet Explorer 10-11 */
+.property-list-container #property-search #property-search-form :-ms-input-placeholder { /* Internet Explorer 10-11 */
   color: #a3a9bd;
 }
 .property-list-container #property-search #property-search-form ::placeholder {
@@ -380,19 +382,13 @@ body.fullscreen .property-images-container .fullscreen img:last-child {
 
 .sortbox {
   position: relative;
-  -webkit-touch-callout: none;
-  /* iOS Safari */
-  -webkit-user-select: none;
-  /* Safari */
-  -khtml-user-select: none;
-  /* Konqueror HTML */
-  -moz-user-select: none;
-  /* Old versions of Firefox */
-  -ms-user-select: none;
-  /* Internet Explorer/Edge */
-  user-select: none;
-  /* Non-prefixed version, currently
-                supported by Chrome, Edge, Opera and Firefox */
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+              supported by Chrome, Edge, Opera and Firefox */
   text-align: right;
 }
 .sortbox .selected {
@@ -896,14 +892,10 @@ body.fullscreen .property-images-container .fullscreen img:last-child {
 .flexyapress-property-slider .slick-next {
   right: 0px;
   /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,0.65+100 */
-  background: -moz-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.1) 100%);
-  /* FF3.6-15 */
-  background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.1) 100%);
-  /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.1) 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#00000000", endColorstr="#a6000000",GradientType=1 );
-  /* IE6-9 */
+  background: -moz-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.1) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.1) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#00000000", endColorstr="#a6000000",GradientType=1 ); /* IE6-9 */
 }
 .flexyapress-property-slider .slick-next:after {
   content: "";
@@ -921,14 +913,10 @@ body.fullscreen .property-images-container .fullscreen img:last-child {
 .flexyapress-property-slider .slick-prev {
   left: 0px;
   /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0.65+0,0+100;Neutral+Density */
-  background: -moz-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
-  /* FF3.6-15 */
-  background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
-  /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#a6000000", endColorstr="#00000000",GradientType=1 );
-  /* IE6-9 */
+  background: -moz-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#a6000000", endColorstr="#00000000",GradientType=1 ); /* IE6-9 */
 }
 .flexyapress-property-slider .slick-prev:after {
   content: "";

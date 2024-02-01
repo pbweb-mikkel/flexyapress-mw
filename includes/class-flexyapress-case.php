@@ -107,6 +107,7 @@ class Flexyapress_Case{
     private $yearlyRentPrArea;
     private $connectionFee;
 	private $buildings;
+    private $customFields;
 
 	/**
 	 * Flexyapress_Case constructor.
@@ -333,6 +334,8 @@ class Flexyapress_Case{
 
         update_field('openhouseDatesTotal', $this->getOpenhouseDatesTotal(), $id);
         update_field('buildings', $this->getBuildings(), $id);
+        var_dump($this->getCustomFields());
+        update_field('customCaseFields', $this->getCustomFields(), $id);
 
 		return $id;
 
@@ -2607,5 +2610,21 @@ class Flexyapress_Case{
 	public function setBuildings( $buildings ) {
 		$this->buildings = $buildings;
 	}
+
+    /**
+     * @return mixed
+     */
+    public function getCustomFields()
+    {
+        return $this->customFields;
+    }
+
+    /**
+     * @param mixed $customFields
+     */
+    public function setCustomFields($customFields)
+    {
+        $this->customFields = $customFields;
+    }
 
 }
