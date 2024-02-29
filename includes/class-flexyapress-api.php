@@ -858,12 +858,12 @@ class Flexyapress_API{
     }
 
 	/* Get cases from flexya. Returns array if data is given, false otherwise */
-	public function get_cases($amount = 9999, $updated_after = "1999-01-01", $status = '[ForSale,Sold,UnderSale,FinallyTrade]'){
+	public function get_cases($amount = 9999, $updated_after = "1999-01-01T00:00:00Z", $status = '[ForSale,Sold,UnderSale,FinallyTrade]'){
         $args = $this->get_header_args();
         $status_string = '';
 
         $amount = $amount ?: 9999;
-        $updated_after = $updated_after ?: "1999-01-01";
+        $updated_after = $updated_after ?: "1999-01-01T00:00:00Z";
         //$status = $status ?: "[ForSale,Sold]";
 
         if($status){
@@ -929,12 +929,12 @@ class Flexyapress_API{
 		
 	}
 
-    public function get_rental_cases($amount = 9999, $updated_after = "1999-01-01", $status = '[ForRent,Rented]'){
+    public function get_rental_cases($amount = 9999, $updated_after = "1999-01-01T00:00:00Z", $status = '[ForRent,Rented]'){
         $args = $this->get_header_args();
         $status_string = '';
 
         $amount = $amount ?: 9999;
-        $updated_after = $updated_after ?: "1999-01-01";
+        $updated_after = $updated_after ?: "1999-01-01T00:00:00Z";
         $status = $status ?: "[ForRent,Rented]";
 
         if($status){
@@ -1000,12 +1000,12 @@ class Flexyapress_API{
 
     }
 
-    public function get_business_cases($amount = 9999, $updated_after = "1999-01-01", $status = '[ForSale,Sold,UnderSale,FinallyTrade]'){
+    public function get_business_cases($amount = 9999, $updated_after = "1999-01-01T00:00:00Z", $status = '[ForSale,Sold,UnderSale,FinallyTrade]'){
         $args = $this->get_header_args();
         $status_string = '';
 
         $amount = $amount ?: 9999;
-        $updated_after = $updated_after ?: "1999-01-01";
+        $updated_after = $updated_after ?: "1999-01-01T00:00:00Z";
         //$status = $status ?: "[ForSale,Sold]";
 
         if($status){
@@ -1071,12 +1071,12 @@ class Flexyapress_API{
 
     }
 
-    public function get_business_rental_cases($amount = 9999, $updated_after = "1999-01-01", $status = '[ForRent,Rented]'){
+    public function get_business_rental_cases($amount = 9999, $updated_after = "1999-01-01T00:00:00Z", $status = '[ForRent,Rented]'){
         $args = $this->get_header_args();
         $status_string = '';
 
         $amount = $amount ?: 9999;
-        $updated_after = $updated_after ?: "1999-01-01";
+        $updated_after = $updated_after ?: "1999-01-01T00:00:00Z";
         $status = $status ?: "[ForRent,Rented]";
 
         if($status){
@@ -1142,11 +1142,11 @@ class Flexyapress_API{
 
     }
 
-    public function get_employees($amount = 9999, $updated_after = "1999-01-01"){
+    public function get_employees($amount = 9999, $updated_after = "1999-01-01T00:00:00Z"){
         $args = $this->get_header_args();
 
         $amount = $amount ?: 9999;
-        $updated_after = $updated_after ?: "1999-01-01";
+        $updated_after = $updated_after ?: "1999-01-01T00:00:00Z";
 
         $ql_string = 'UpdatedAfter: "'.$updated_after.'", Amount: '.$amount;
         $args['timeout'] = 300;

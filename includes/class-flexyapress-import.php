@@ -25,7 +25,7 @@ class Flexyapress_Import{
         $error = false;
 
         $count_before = count($existing_cases);
-        $updated_since = $force ? '1999-01-01' : (get_transient('flexyapress_last_update') ?: '1999-01-01');
+        $updated_since = $force ? '1999-01-01T00:00:00Z' : (get_transient('flexyapress_last_update') ?: '1999-01-01T00:00:00Z');
         $amount = $force ? 9999 : 20;
 
         $api_cases = $this->getAPI()->get_cases($amount, $updated_since);
