@@ -29,6 +29,7 @@ class Flexyapress_Case{
 	private $realtorTitle;
 	private $address;
 	private $addressFreetext;
+	private $customGoogleMapsAddress;
 	private $floor;
 	private $door;
 	private $zipcode;
@@ -983,6 +984,9 @@ class Flexyapress_Case{
 	 * @return mixed
 	 */
 	public function getMapAddress() {
+        if($this->getCustomGoogleMapsAddress()){
+            return $this->getCustomGoogleMapsAddress();
+        }
 		return $this->getRoadname().' '.$this->getRoadnumber().' '.$this->getZipcode().' '.$this->getCity();
 	}
 
@@ -2630,5 +2634,23 @@ class Flexyapress_Case{
     {
         $this->customFields = $customFields;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getCustomGoogleMapsAddress()
+    {
+        return $this->customGoogleMapsAddress;
+    }
+
+    /**
+     * @param mixed $customGoogleMapsAddress
+     */
+    public function setCustomGoogleMapsAddress($customGoogleMapsAddress)
+    {
+        $this->customGoogleMapsAddress = $customGoogleMapsAddress;
+    }
+
+
 
 }

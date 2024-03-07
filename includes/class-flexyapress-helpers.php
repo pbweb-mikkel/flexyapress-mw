@@ -82,6 +82,7 @@ class Flexyapress_Helpers{
             'Workshop' => __('Værksted', 'flexyapress'),
             'Garage' => __('Garage', 'flexyapress'),
             'Clinic' => __('Klinik', 'flexyapress'),
+            'HotelOrRestaurant' => __('Hotel & Restaurant', 'flexyapress'),
         );
 		
 		if(isset($names[$type])){
