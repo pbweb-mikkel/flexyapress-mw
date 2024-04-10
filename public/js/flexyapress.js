@@ -214,6 +214,10 @@
     /* Close fullscreen */
     function closeFullscreen() {
         $('body').removeClass('fullscreen');
+        if(!document.fullscreenElement){
+            $(window).trigger('resize');
+            return;
+        }
         if (document.exitFullscreen) {
             document.exitFullscreen();
         } else if (document.webkitExitFullscreen) { /* Safari */

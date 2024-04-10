@@ -493,7 +493,8 @@ body.fullscreen .property-images-container .fullscreen img:last-child {
   padding: 5px;
   border-radius: 5px;
   position: absolute;
-  right: 15px;
+  left: 50%;
+  transform: translateX(-50%);
   bottom: 15px;
   background: #fff;
   z-index: 10;
