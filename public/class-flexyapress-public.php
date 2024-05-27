@@ -178,7 +178,7 @@ class Flexyapress_Public {
         }
 
         /* Checks for single template by post type */
-        if (!empty($post->post_type) && $post->post_type == 'sag' ) {
+        if (!empty($post->post_type) && $post->post_type == 'sag' && is_single()) {
             if(file_exists(get_stylesheet_directory().'/mw/single-sag.php')){
                 $single = get_stylesheet_directory().'/mw/single-sag.php';
             }else if(file_exists(get_stylesheet_directory().'/single-sag.php')){
