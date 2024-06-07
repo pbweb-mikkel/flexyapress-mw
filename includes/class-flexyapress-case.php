@@ -2635,6 +2635,18 @@ class Flexyapress_Case{
         $this->customFields = $customFields;
     }
 
+    public function getCustomField($name){
+        if(!$this->customFields || !is_array($this->customFields)){
+            return null;
+        }
+        foreach ($this->customFields as $field){
+            if($field['name'] == $name){
+                return $field['value'];
+            }
+        }
+        return null;
+    }
+
     /**
      * @return mixed
      */
