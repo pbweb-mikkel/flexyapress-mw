@@ -115,6 +115,12 @@ class Flexyapress_API{
                             roofType
                             netRegisteredArea
                             registeredArea
+                            buildingInclAreas {
+                                area
+                                buildingInclAreaType
+                                description
+                                isLivable
+                            }
                           }
                           totalFloors
                           totalFullFloors
@@ -334,6 +340,12 @@ class Flexyapress_API{
                             businessBuildingType
                             elevator
                             livableArea
+                            buildingInclAreas {
+                                area
+                                buildingInclAreaType
+                                description
+                                isLivable
+                            }
                           }
                           totalFloors
                           totalFullFloors
@@ -547,6 +559,12 @@ class Flexyapress_API{
                             businessBuildingType
                             elevator
                             livableArea
+                            buildingInclAreas {
+                                area
+                                buildingInclAreaType
+                                description
+                                isLivable
+                            }
                           }
                           totalFloors
                           totalFullFloors
@@ -749,6 +767,12 @@ class Flexyapress_API{
                             roofType
                             netRegisteredArea
                             registeredArea
+                            buildingInclAreas {
+                                area
+                                buildingInclAreaType
+                                description
+                                isLivable
+                            }
                           }
                           totalFloors
                           totalFullFloors
