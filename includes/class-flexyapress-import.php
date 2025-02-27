@@ -392,19 +392,19 @@ class Flexyapress_Import{
             foreach ($c->announceTexts as $t){
                 switch ($t->textNumber){
                     case 1:
-                        $announceText1 = $t->text;
+                        $announceText1 = $t->text ?: $t->introText;
                         break;
                     case 2:
-                        $announceText2 = $t->text;
+                        $announceText2 = $t->text ?: $t->introText;
                         break;
                     case 3:
-                        $announceText3 = $t->text;
+                        $announceText3 = $t->text ?: $t->introText;
                         break;
                     case 4:
-                        $announceText4 = $t->text;
+                        $announceText4 = $t->text ?: $t->introText;
                         break;
                     case 5:
-                        $announceText5 = $t->text;
+                        $announceText5 = $t->text ?: $t->introText;
                         break;
                 }
             }
