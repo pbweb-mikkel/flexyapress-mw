@@ -22,14 +22,14 @@ if(isset($atts) && $atts['sale_type'] != 'all'){
 	);
 }
 
-if(!empty($atts['show_only']) && $atts['show_only'] == 'business'){
+if((!empty($atts['show_only']) && $atts['show_only'] == 'business') || (isset($_GET['show_only']) && $_GET['show_only'] == 'business')){
     $business = true;
     $qargs['meta_query'][] = array(
         'key' => 'caseType',
         'value' => ['BusinessSalesCase', 'BusinessRentalCase'],
         'compare' => 'IN'
     );
-}elseif (!empty($atts['show_only']) && $atts['show_only'] == 'private'){
+}elseif ((!empty($atts['show_only']) && $atts['show_only'] == 'private') || (isset($_GET['show_only']) && $_GET['show_only'] == 'private')){
     $qargs['meta_query'][] = array(
         'key' => 'caseType',
         'value' => ['SalesCase', 'RentalCase', 'LoanCase'],
