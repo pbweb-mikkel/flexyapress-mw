@@ -1,5 +1,5 @@
 <?php
-define( 'FLEXYAPRESS_VERSION', '1.54' );
+define( 'FLEXYAPRESS_VERSION', '1.55' );
 /**
  * The plugin bootstrap file
  *

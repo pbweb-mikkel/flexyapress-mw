@@ -545,8 +545,12 @@ class Flexyapress_Import{
 
             if(!empty($sorted_appointments)){
                 $case->setOpenhouseActive(true);
-                $day = Flexyapress_Helpers::get_pretty_day_name(date('w', strtotime($sorted_appointments[0]['dateStart'])));
-                $case->setOpenHouseDate($day.' d. '.date('d/m', strtotime($sorted_appointments[0]['dateStart'])).' kl. '.date('H:i', strtotime($sorted_appointments[0]['dateStart'])).(!empty($sorted_appointments[0]['dateEndUnix']) ? ' - '.date('H:i', $sorted_appointments[0]['dateEndUnix']) : ''));
+                if(apply_filters('flexyapress_openhouse_remove_day_on_sign', false)){
+                    $case->setOpenHouseDate('d. '.date('d/m', strtotime($sorted_appointments[0]['dateStart'])).' kl. '.date('H:i', strtotime($sorted_appointments[0]['dateStart'])).(!empty($sorted_appointments[0]['dateEndUnix']) ? ' - '.date('H:i', $sorted_appointments[0]['dateEndUnix']) : ''));
+                }else{
+                    $day = Flexyapress_Helpers::get_pretty_day_name(date('w', strtotime($sorted_appointments[0]['dateStart'])));
+                    $case->setOpenHouseDate($day.' d. '.date('d/m', strtotime($sorted_appointments[0]['dateStart'])).' kl. '.date('H:i', strtotime($sorted_appointments[0]['dateStart'])).(!empty($sorted_appointments[0]['dateEndUnix']) ? ' - '.date('H:i', $sorted_appointments[0]['dateEndUnix']) : ''));
+                }
                 $case->setOpenhouseSignupRequired($sorted_appointments[0]['signupRequired']);
 
             }else{
