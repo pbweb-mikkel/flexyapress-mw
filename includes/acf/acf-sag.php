@@ -2260,6 +2260,14 @@ if (function_exists('acf_add_local_field_group')):
                         'ui'                => 1
                     ),
                     array(
+                        'key' => 'field_62bac1f2dk4l12fd3',
+                        'label'             => 'Tilmeldingsfrist',
+                        'name'              => 'openhouseSignupDate',
+                        'type'              => 'text',
+                        'instructions'      => '',
+                        'required'          => 0,
+                    ),
+                    array(
                         'key' => 'field_62bac1f2dk4l3',
                         'label'             => 'ID',
                         'name'              => 'id',

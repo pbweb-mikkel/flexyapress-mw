@@ -153,6 +153,7 @@ class Flexyapress_API{
                             endDate
                             status
                             requiresRegistration
+                            registrationDeadline
                           }
                           announceTextInternet
                           announceHeadlineInternet
@@ -373,6 +374,7 @@ class Flexyapress_API{
                             endDate
                             status
                             requiresRegistration
+                            registrationDeadline
                           }
                           announceTextInternet
                           announceHeadlineInternet
@@ -591,6 +593,7 @@ class Flexyapress_API{
                             endDate
                             status
                             requiresRegistration
+                            registrationDeadline
                           }
                           announceTextInternet
                           announceHeadlineInternet
@@ -799,6 +802,7 @@ class Flexyapress_API{
                             endDate
                             status
                             requiresRegistration
+                            registrationDeadline
                           }
                           announceTextInternet
                           announceHeadlineInternet
