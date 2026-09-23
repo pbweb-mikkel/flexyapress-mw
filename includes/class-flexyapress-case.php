@@ -344,6 +344,8 @@ class Flexyapress_Case{
         update_field('incBuildings', $this->getIncBuildings(), $id);
         update_field('customCaseFields', $this->getCustomFields(), $id);
 
+        do_action('flexyapress_case_saved', $id);
+
 		return $id;
 
 	}

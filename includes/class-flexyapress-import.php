@@ -526,6 +526,9 @@ class Flexyapress_Import{
                     continue;
                 }
 
+                $deadline = !empty($oh->registrationDeadline) ? $oh->registrationDeadline : null;
+                $deadline = apply_filters('openhouse_deadline', $deadline, $oh);
+
                 date_default_timezone_set('Europe/Copenhagen');
 
                 $temp = array(
@@ -535,9 +538,14 @@ class Flexyapress_Import{
                     'dateEnd' => $oh->endDate,
                     'signupRequired' => $oh->requiresRegistration,
                     'id' => $oh->id,
-                    'description' => $oh->description
-
+                    'description' => $oh->description,
+                    'openhouseSignupDate' => $deadline,
                 );
+
+                echo strtotime('now').' > '.strtotime($deadline).'<br>';
+                if(!empty($deadline) && strtotime('now') > strtotime($deadline)) {
+                    continue;
+                }
 
                 $sorted_appointments[] = $temp;
 
@@ -552,12 +560,12 @@ class Flexyapress_Import{
                     $case->setOpenHouseDate($day.' d. '.date('d/m', strtotime($sorted_appointments[0]['dateStart'])).' kl. '.date('H:i', strtotime($sorted_appointments[0]['dateStart'])).(!empty($sorted_appointments[0]['dateEndUnix']) ? ' - '.date('H:i', $sorted_appointments[0]['dateEndUnix']) : ''));
                 }
                 $case->setOpenhouseSignupRequired($sorted_appointments[0]['signupRequired']);
-
+                $case->setOpenhouseSignupDate($sorted_appointments[0]['openhouseSignupDate']);
+                $case->setOpenhouseDatesTotal($sorted_appointments);
             }else{
                 $case->setOpenhouseActive(false);
+                $case->setOpenhouseDatesTotal(array());
             }
-
-            $case->setOpenhouseDatesTotal($sorted_appointments);
 
         }else{
             $case->setOpenhouseActive(false);
